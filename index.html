@@ -1,184 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Fesma Cleaning Services | Professional Cleaning & Facilities Management</title>
-<meta name="description" content="Fesma Cleaning Services - Professional cleaning, pest control & facilities management solutions in Nairobi. Elevating spaces and people.">
+<meta name="description" content="Fesma Cleaning Services - Professional cleaning, pest control & facilities management solutions in Nairobi. Elevating spaces and people." />
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-<script>tailwind.config={theme:{extend:{colors:{primary:'#FA991C',secondary:'#1C768F'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { primary: '#FA991C', secondary: '#1C768F' },
+        borderRadius: {
+          none: '0px',
+          sm: '4px',
+          DEFAULT: '8px',
+          md: '12px',
+          lg: '16px',
+          xl: '20px',
+          '2xl': '24px',
+          '3xl': '32px',
+          full: '9999px',
+          button: '8px',
+        },
+      },
+    },
+  };
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
 <style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-body {
-font-family: 'Work Sans', sans-serif;
-color: #333;
-background-color: #FBF3F2;
-}
-.hero-slide {
-opacity: 0;
-transition: opacity 1s ease-in-out;
-}
-.hero-slide.active {
-opacity: 1;
-}
-.carousel-dot.active {
-background-color: white;
-}
-h1, h2, h3, h4, h5, h6 {
-font-family: 'Poppins', sans-serif;
-}
-.hero-section {
-background-position: center;
-background-size: cover;
-position: relative;
-}
-.hero-overlay {
-background: linear-gradient(90deg, rgba(251, 243, 242, 0.95) 0%, rgba(251, 243, 242, 0.8) 50%, rgba(251, 243, 242, 0) 100%);
-}
-.service-card:hover {
-transform: translateY(-5px);
-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-.parallax-section {
-background-attachment: fixed;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-}
-.testimonial-card {
-transition: all 0.3s ease;
-}
-.testimonial-card:hover {
-transform: scale(1.02);
-}
-.blog-card:hover img {
-transform: scale(1.05);
-}
-.blog-card img {
-transition: transform 0.5s ease;
-}
-.service-dropdown {
-max-height: 0;
-overflow: hidden;
-transition: max-height 0.5s ease;
-}
-.service-dropdown.active {
-max-height: 1000px;
-}
-.back-to-top {
-opacity: 0;
-visibility: hidden;
-transition: opacity 0.3s, visibility 0.3s;
-}
-.back-to-top.visible {
-opacity: 1;
-visibility: visible;
-}
-input:focus, select:focus, textarea:focus {
-outline: none;
-border-color: #FA991C;
-box-shadow: 0 0 0 3px rgba(250, 153, 28, 0.2);
-}
-.custom-checkbox {
-display: inline-block;
-width: 20px;
-height: 20px;
-background-color: white;
-border: 2px solid #ccc;
-border-radius: 4px;
-position: relative;
-cursor: pointer;
-}
-.custom-checkbox.checked {
-background-color: #FA991C;
-border-color: #FA991C;
-}
-.custom-checkbox.checked::after {
-content: '';
-position: absolute;
-left: 6px;
-top: 2px;
-width: 5px;
-height: 10px;
-border: solid white;
-border-width: 0 2px 2px 0;
-transform: rotate(45deg);
-}
-.custom-radio {
-display: inline-block;
-width: 20px;
-height: 20px;
-background-color: white;
-border: 2px solid #ccc;
-border-radius: 50%;
-position: relative;
-cursor: pointer;
-}
-.custom-radio.checked {
-border-color: #FA991C;
-}
-.custom-radio.checked::after {
-content: '';
-position: absolute;
-left: 4px;
-top: 4px;
-width: 8px;
-height: 8px;
-background-color: #FA991C;
-border-radius: 50%;
-}
-.custom-switch {
-position: relative;
-display: inline-block;
-width: 48px;
-height: 24px;
-}
-.custom-switch-track {
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-color: #ccc;
-border-radius: 24px;
-transition: 0.4s;
-}
-.custom-switch-thumb {
-position: absolute;
-height: 20px;
-width: 20px;
-left: 2px;
-bottom: 2px;
-background-color: white;
-border-radius: 50%;
-transition: 0.4s;
-}
-.custom-switch.active .custom-switch-track {
-background-color: #FA991C;
-}
-.custom-switch.active .custom-switch-thumb {
-transform: translateX(24px);
-}
-</style>
-</head>
-<body>
-<!-- Header -->
-<header class="fixed w-full bg-white bg-opacity-95 shadow-md z-50 transition-all duration-300">
-<div class="container mx-auto px-4 py-3 flex justify-between items-center">
-<div class="flex items-center">
-<div class="flex flex-col items-start">
-<a href="#" class="flex items-center">
-<img id="logo-img" src="assets/fesma-logo.png" alt="Fesma Logo" class="h-10 mr-2 transition-all duration-300" />
-</a>
-<span class="text-xs text-[#1C768F] mt-1">A member of Strathwell Group</span>
-</div>
-</div>
-<nav class="hidden md:flex space-x-8">
+  :where([class^='ri-'])::before {
+    content: '\f3c2';
+  }
+  body {
+    font-family: 'Work Sans', sans-serif;
+    color: #333;
+    background-color: #FBF3F2;
+    font-size: 14px;
+  }
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+  }
+  h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+  }
+  h5 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.125rem;
+  }
+  h6 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+  }
+  .hero-slide {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  .hero-slide.active {
+    opacity: 1;
+  }
+  .carousel-dot.active {
+    background-color: white;
+  }
+  .hero-section {
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  .hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(251, 243, 242, 0.95) 0%,
+      rgba(251, 243, 242, 0.8) 50%,
+      rgba(251, 243, 242, 0) 100%
+    );
+  }
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  .parallax-section {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .testimonial-card {
+    transition: all 0.3s ease;
+  }
+  .testimonial-card:hover {
+    transform: scale(1.02);
+  }
+  .blog-card:hover img {
+    transform: scale(1.05);
+  }
+  .blog-card img {
+    transition: transform 0.5s ease;
+  }
+  .service-dropdown {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+  .service-dropdown.active {
+    max-height: 1000px;
+  }
+  .back-to-top {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #fa991c;
+    box-shadow: 0 0 0 3px rgba(250, 153, 28, 0.2);
+  }
+  .custom-checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+  }
+  .custom-checkbox.checked {
+    background-color: #fa991c;
+    border-color: #fa991c;
+  }
+  .custom-checkbox.checked::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .custom-radio {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+  }
+  .custom-radio.checked {
+    border-color: #fa991c;
+  }
+  .custom-radio.checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 4px;
 <a href="#" class="text-gray-700 hover:text-primary font-medium transition-colors">Home</a>
 <a href="#services" class="text-gray-700 hover:text-primary font-medium transition-colors">Services</a>
 <a href="#clients" class="text-gray-700 hover:text-primary font-medium transition-colors">Clients</a>
