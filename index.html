@@ -1069,11 +1069,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Nav links color fade from gray-700 to white
     navLinks.forEach(link => {
       link.style.color = `rgba(255, 255, 255, ${opacity})`;
-      if (opacity < 0.5) {
-        link.classList.add('hover:text-primary');
-      } else {
-        link.classList.remove('hover:text-primary');
-      }
+      // Ensure all nav links have orange hover color always
+      link.classList.add('hover:text-primary');
     });
 
     // Member text color fade
