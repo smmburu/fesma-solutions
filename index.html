@@ -6,7 +6,7 @@
 <title>Fesma Cleaning Services | Professional Cleaning & Facilities Management</title>
 <meta name="description" content="Fesma Cleaning Services - Professional cleaning, pest control & facilities management solutions in Nairobi. Elevating spaces and people.">
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-<script>tailwind.config={theme:{extend:{colors:{primary:'#1C768F',secondary:'#FA991C'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FA991C',secondary:'#1C768F'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -16,33 +16,8 @@
 :where([class^="ri-"])::before { content: "\f3c2"; }
 body {
 font-family: 'Work Sans', sans-serif;
-color: #2E2E2E;
+color: #333;
 background-color: #FBF3F2;
-font-size: 14px; /* Reduced base font size */
-}
-h1 {
-font-family: 'Poppins', sans-serif;
-font-size: 2.5rem; /* Reduced from larger size */
-}
-h2 {
-font-family: 'Poppins', sans-serif;
-font-size: 2rem; /* Reduced from larger size */
-}
-h3 {
-font-family: 'Poppins', sans-serif;
-font-size: 1.75rem; /* Reduced from larger size */
-}
-h4 {
-font-family: 'Poppins', sans-serif;
-font-size: 1.5rem; /* Reduced from larger size */
-}
-h5 {
-font-family: 'Poppins', sans-serif;
-font-size: 1.25rem; /* Reduced from larger size */
-}
-h6 {
-font-family: 'Poppins', sans-serif;
-font-size: 1rem; /* Reduced from larger size */
 }
 .hero-slide {
 opacity: 0;
@@ -54,6 +29,9 @@ opacity: 1;
 .carousel-dot.active {
 background-color: white;
 }
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Poppins', sans-serif;
+}
 .hero-section {
 background-position: center;
 background-size: cover;
@@ -62,16 +40,9 @@ position: relative;
 .hero-overlay {
 background: linear-gradient(90deg, rgba(251, 243, 242, 0.95) 0%, rgba(251, 243, 242, 0.8) 50%, rgba(251, 243, 242, 0) 100%);
 }
-.service-card {
-background-color: white;
-border-radius: 8px;
-box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 .service-card:hover {
-transform: scale(1.02) translateY(-6px);
-box-shadow: 0 6px 20px rgba(250, 153, 28, 0.3);
-border-left: 4px solid #FA991C;
+transform: translateY(-5px);
+box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 .parallax-section {
 background-attachment: fixed;
@@ -192,113 +163,6 @@ background-color: #FA991C;
 }
 .custom-switch.active .custom-switch-thumb {
 transform: translateX(24px);
-}
-
-/* Link underline animation */
-a {
-position: relative;
-color: #1C768F;
-text-decoration: none;
-transition: color 0.3s ease;
-cursor: pointer;
-}
-a::after {
-content: '';
-position: absolute;
-width: 100%;
-height: 2px;
-bottom: 0;
-left: 0;
-background-color: #FA991C;
-transform: scaleX(0);
-transform-origin: bottom right;
-transition: transform 0.3s ease;
-}
-a:hover::after {
-transform: scaleX(1);
-transform-origin: bottom left;
-}
-
-/* Sticky header shadow on scroll */
-header.sticky-shadow {
-box-shadow: 0 4px 10px rgba(3, 37, 57, 0.3);
-transition: box-shadow 0.3s ease;
-}
-
-/* Scroll fade-in animation */
-.fade-in {
-opacity: 0;
-transform: translateY(20px);
-transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.fade-in.visible {
-opacity: 1;
-transform: translateY(0);
-}
-
-/* Image hover zoom and overlay */
-.image-hover-container {
-position: relative;
-overflow: hidden;
-}
-.image-hover-container img {
-transition: transform 0.3s ease;
-}
-.image-hover-container:hover img {
-transform: scale(1.03);
-}
-.image-hover-container::after {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(3, 37, 57, 0.3);
-opacity: 0;
-transition: opacity 0.3s ease;
-}
-.image-hover-container:hover::after {
-opacity: 1;
-}
-
-/* Carousel crossfade */
-.carousel-slide {
-opacity: 0;
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-transition: opacity 0.5s ease-in-out;
-}
-.carousel-slide.active {
-opacity: 1;
-position: relative;
-}
-
-/* Pulse animation for secondary accent */
-@keyframes pulse {
-0%, 100% {
-transform: scale(1);
-opacity: 1;
-}
-50% {
-transform: scale(1.1);
-opacity: 0.7;
-}
-}
-.icon-pulse:hover {
-animation: pulse 1.5s infinite;
-cursor: pointer;
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-* {
-transition: none !important;
-animation: none !important;
-}
 }
 </style>
 </head>
