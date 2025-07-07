@@ -173,6 +173,7 @@ transform: translateX(24px);
 <div class="flex items-center">
 <div class="flex flex-col items-start">
 <a href="#" class="flex items-center">
+<img id="logo-img" src="assets/fesma-logo.png" alt="Fesma Logo" class="h-10 mr-2 transition-all duration-300" />
 <h1 class="text-2xl font-['Pacifico'] text-primary mr-2">Fesma</h1>
 <span class="text-sm font-medium text-[#032539]">Cleaning Services</span>
 </a>
@@ -1081,6 +1082,25 @@ switchEl.addEventListener('click', function() {
 this.classList.toggle('active');
 });
 });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('header');
+  const logoImg = document.getElementById('logo-img');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+      header.classList.add('sticky-shadow');
+      if (logoImg) {
+        logoImg.src = 'assets/fesma-logo - white.png';
+      }
+    } else {
+      header.classList.remove('sticky-shadow');
+      if (logoImg) {
+        logoImg.src = 'assets/fesma-logo.png';
+      }
+    }
+  });
 });
 </script>
 </body>
