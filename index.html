@@ -1,1240 +1,1087 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fesma Solutions - Integrated Facility Management</title>
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Fesma Solutions provides integrated facility management services, transforming spaces for commercial, healthcare, education, and more. Elevate your environment with our expert team.">
-    <meta name="keywords" content="facility management, integrated facility management, cleaning, maintenance, commercial, healthcare, education, property, industrial, sustainability, Fesma Solutions">
-    <meta name="author" content="Fesma Solutions">
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Fesma Solutions - Integrated Facility Management">
-    <meta property="og:description" content="Transforming facilities into thriving environments. Discover our integrated facility management services.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://fesmasolutions.com/">
-    <meta property="og:image" content="https://readdy.ai/api/search-image?query=professional%20team%20in%20uniform%20working%20together%20in%20a%20modern%20facility&width=1200&height=630">
-    <meta name="twitter:card" content="summary_large_image">
-    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#FA991C',secondary:'#1C768F'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-    <style>
-        :where([class^="ri-"])::before { content: "\f3c2"; }
-        body {
-            font-family: 'Work Sans', sans-serif;
-            color: #333;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-        }
-        .hero-slide {
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .hero-slide.active {
-            opacity: 1;
-            z-index: 1;
-        }
-        .carousel-arrow {
-            transition: all 0.3s ease;
-        }
-        .carousel-arrow:hover {
-            background-color: rgba(250, 153, 28, 0.9);
-            transform: scale(1.05);
-        }
-        .service-card {
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        .service-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-        .service-card:hover .service-content {
-            max-height: 300px;
-        }
-        .client-card {
-            transition: all 0.3s ease;
-        }
-        .client-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        .client-info {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-        }
-        .client-card:hover .client-info {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .testimonial-slide {
-            opacity: 0;
-            transition: opacity 0.8s ease;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-        }
-        .testimonial-slide.active {
-            opacity: 1;
-            z-index: 1;
-        }
-        .blog-card {
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        .blog-summary {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-        }
-        .blog-card:hover .blog-summary {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .cta-button {
-            transition: all 0.3s ease;
-        }
-        .cta-button:hover {
-            box-shadow: 0 0 15px rgba(250, 153, 28, 0.5);
-            transform: translateY(-2px);
-        }
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        input, select, textarea {
-            outline: none;
-        }
-        input:focus, select:focus, textarea:focus {
-            border-color: #FA991C;
-            box-shadow: 0 0 0 2px rgba(250, 153, 28, 0.2);
-        }
-        .counter-value {
-            transition: all 0.8s ease;
-        }
-        .sticky-header {
-            transition: background-color 0.3s ease;
-        }
-        /* Responsive mobile nav overlay */
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(3, 37, 57, 0.97);
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .mobile-nav.active {
-            display: flex;
-        }
-        .mobile-nav a {
-            color: #fff;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-        .mobile-nav .close-btn {
-            position: absolute;
-            top: 1.5rem;
-            right: 2rem;
-            font-size: 2.5rem;
-            color: #FA991C;
-            background: none;
-            border: none;
-        }
-        @media (max-width: 768px) {
-            .container {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-            .hero-slide h1 {
-                font-size: 2rem;
-            }
-            .hero-slide p {
-                font-size: 1rem;
-            }
-            .service-card, .client-card, .blog-card {
-                min-height: unset;
-            }
-            .h-64, .h-48 {
-                height: 200px !important;
-            }
-            .testimonial-slide {
-                height: auto !important;
-            }
-            .md\:flex, .md\:grid-cols-3, .md\:w-1\/3, .md\:w-2\/3, .md\:grid-cols-4, .md\:flex-row {
-                flex-direction: column !important;
-                grid-template-columns: 1fr !important;
-                width: 100% !important;
-            }
-            .grid-cols-2 {
-                grid-template-columns: 1fr !important;
-            }
-            .py-20, .py-24 {
-                padding-top: 2.5rem !important;
-                padding-bottom: 2.5rem !important;
-            }
-            .mb-16 {
-                margin-bottom: 2rem !important;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fesma Cleaning Services | Professional Cleaning & Facilities Management</title>
+<meta name="description" content="Fesma Cleaning Services - Professional cleaning, pest control & facilities management solutions in Nairobi. Elevating spaces and people.">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FA991C',secondary:'#1C768F'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Work Sans', sans-serif;
+color: #333;
+background-color: #FBF3F2;
+}
+.hero-slide {
+opacity: 0;
+transition: opacity 1s ease-in-out;
+}
+.hero-slide.active {
+opacity: 1;
+}
+.carousel-dot.active {
+background-color: white;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Poppins', sans-serif;
+}
+.hero-section {
+background-position: center;
+background-size: cover;
+position: relative;
+}
+.hero-overlay {
+background: linear-gradient(90deg, rgba(251, 243, 242, 0.95) 0%, rgba(251, 243, 242, 0.8) 50%, rgba(251, 243, 242, 0) 100%);
+}
+.service-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+.parallax-section {
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.testimonial-card {
+transition: all 0.3s ease;
+}
+.testimonial-card:hover {
+transform: scale(1.02);
+}
+.blog-card:hover img {
+transform: scale(1.05);
+}
+.blog-card img {
+transition: transform 0.5s ease;
+}
+.service-dropdown {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.5s ease;
+}
+.service-dropdown.active {
+max-height: 1000px;
+}
+.back-to-top {
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.3s, visibility 0.3s;
+}
+.back-to-top.visible {
+opacity: 1;
+visibility: visible;
+}
+input:focus, select:focus, textarea:focus {
+outline: none;
+border-color: #FA991C;
+box-shadow: 0 0 0 3px rgba(250, 153, 28, 0.2);
+}
+.custom-checkbox {
+display: inline-block;
+width: 20px;
+height: 20px;
+background-color: white;
+border: 2px solid #ccc;
+border-radius: 4px;
+position: relative;
+cursor: pointer;
+}
+.custom-checkbox.checked {
+background-color: #FA991C;
+border-color: #FA991C;
+}
+.custom-checkbox.checked::after {
+content: '';
+position: absolute;
+left: 6px;
+top: 2px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-radio {
+display: inline-block;
+width: 20px;
+height: 20px;
+background-color: white;
+border: 2px solid #ccc;
+border-radius: 50%;
+position: relative;
+cursor: pointer;
+}
+.custom-radio.checked {
+border-color: #FA991C;
+}
+.custom-radio.checked::after {
+content: '';
+position: absolute;
+left: 4px;
+top: 4px;
+width: 8px;
+height: 8px;
+background-color: #FA991C;
+border-radius: 50%;
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 48px;
+height: 24px;
+}
+.custom-switch-track {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+border-radius: 24px;
+transition: 0.4s;
+}
+.custom-switch-thumb {
+position: absolute;
+height: 20px;
+width: 20px;
+left: 2px;
+bottom: 2px;
+background-color: white;
+border-radius: 50%;
+transition: 0.4s;
+}
+.custom-switch.active .custom-switch-track {
+background-color: #FA991C;
+}
+.custom-switch.active .custom-switch-thumb {
+transform: translateX(24px);
+}
+</style>
 </head>
-<body class="bg-[#FBF3F2]">
-    <!-- Header -->
-    <header class="sticky-header sticky top-0 z-50 bg-white shadow-md">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-3xl font-['Pacifico'] text-[#032539]" aria-label="Fesma Home">Fesma</a>
-<nav class="hidden md:flex space-x-6 justify-center flex-grow text-sm" aria-label="Main Navigation">
-    <a href="#" class="font-medium text-[#032539] hover:text-primary transition-colors">Elevate</a>
-    <div class="relative group">
-        <button class="font-medium text-[#032539] hover:text-primary transition-colors flex items-center space-x-1 focus:outline-none">
-            <span>Solutions That Work</span>
-            <i class="ri-arrow-down-s-line"></i>
-        </button>
-        <div id="solutions-dropdown" class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity z-20 dropdown-light">
-            <a href="services.html#soft-services" class="block px-4 py-2 text-[#032539] hover:bg-primary hover:text-white">Soft Services</a>
-            <a href="services.html#hard-services" class="block px-4 py-2 text-[#032539] hover:bg-primary hover:text-white">Hard Services</a>
-        </div>
-    </div>
-    <a href="services.html" class="font-medium text-[#032539] hover:text-primary transition-colors">Solutions</a>
-    <a href="#about" class="font-medium text-[#032539] hover:text-primary transition-colors">Our Why</a>
-    <a href="#careers" class="font-medium text-[#032539] hover:text-primary transition-colors">Grow With Us</a>
-    <a href="#blog" class="font-medium text-[#032539] hover:text-primary transition-colors">Elevation Journal</a>
-    <a href="#contact" class="font-medium text-[#032539] hover:text-primary transition-colors">Partner With Us</a>
+<body>
+<!-- Header -->
+<header class="fixed w-full bg-white bg-opacity-95 shadow-md z-50 transition-all duration-300">
+<div class="container mx-auto px-4 py-3 flex justify-between items-center">
+<div class="flex items-center">
+<div class="flex flex-col items-start">
+<a href="#" class="flex items-center">
+<h1 class="text-2xl font-['Pacifico'] text-primary mr-2">Fesma</h1>
+<span class="text-sm font-medium text-[#032539]">Cleaning Services</span>
+</a>
+<span class="text-xs text-[#1C768F] mt-1">A member of Strathwell Group</span>
+</div>
+</div>
+<nav class="hidden md:flex space-x-8">
+<a href="#" class="text-gray-700 hover:text-primary font-medium transition-colors">Home</a>
+<a href="#services" class="text-gray-700 hover:text-primary font-medium transition-colors">Services</a>
+<a href="#clients" class="text-gray-700 hover:text-primary font-medium transition-colors">Clients</a>
+<a href="#testimonials" class="text-gray-700 hover:text-primary font-medium transition-colors">Testimonials</a>
+<a href="#careers" class="text-gray-700 hover:text-primary font-medium transition-colors">Careers</a>
+<a href="#blog" class="text-gray-700 hover:text-primary font-medium transition-colors">Blog</a>
+<a href="#contact" class="text-gray-700 hover:text-primary font-medium transition-colors">Contact</a>
 </nav>
-            <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center text-[#032539]" aria-label="Open menu">
-                <i class="ri-menu-line ri-2x"></i>
-            </button>
-            <a href="#contact" class="hidden md:block bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap cta-button">Get a Quote</a>
-        </div>
-        <!-- Mobile Nav Overlay -->
-        <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation">
-            <button class="close-btn" aria-label="Close menu"><i class="ri-close-line"></i></button>
-            <a href="#" tabindex="0">Home</a>
-            <a href="#services" tabindex="0">Services</a>
-            <a href="#clients" tabindex="0">Clients</a>
-            <a href="#careers" tabindex="0">Careers</a>
-            <a href="#blog" tabindex="0">Blog</a>
-            <a href="#contact" tabindex="0">Contact</a>
-            <a href="#contact" class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap cta-button mt-4" tabindex="0">Get a Quote</a>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="relative h-[600px] overflow-hidden">
-        <div id="hero-carousel" class="relative w-full h-full">
-            <!-- Slide 1 -->
-            <div class="hero-slide active" style="background-image: linear-gradient(rgba(3, 37, 57, 0.6), rgba(3, 37, 57, 0.6)), url('https://readdy.ai/api/search-image?query=professional%20team%20in%20uniform%20working%20together%20in%20a%20modern%20facility%2C%20high%20quality%2C%20professional%20photography%2C%20corporate%20environment%2C%20team%20wearing%20matching%20uniforms%20with%20logo%2C%20diverse%20team%20members%2C%20bright%20and%20clean%20workspace&width=1920&height=600&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
-                <div class="container mx-auto px-6 h-full flex items-center">
-                    <div class="max-w-2xl text-white">
-                        <h1 class="text-5xl font-bold mb-4">Integrated Facility Management, Elevated</h1>
-                        <p class="text-xl mb-8">Behind every seamless space is a team that makes it happen. From cleaners to technicians, our experts work together to keep your world running like clockwork.</p>
-                        <button class="bg-primary text-white px-8 py-3 !rounded-button font-medium text-lg hover:bg-opacity-90 transition-all whitespace-nowrap cta-button">Talk to Our Experts →</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 2 -->
-            <div class="hero-slide" style="background-image: linear-gradient(rgba(3, 37, 57, 0.6), rgba(3, 37, 57, 0.6)), url('https://readdy.ai/api/search-image?query=satisfied%20business%20client%20in%20relaxed%20conversation%20with%20facility%20management%20professional%2C%20modern%20office%20setting%2C%20natural%20lighting%2C%20professional%20attire%2C%20genuine%20smiles%2C%20handshake%2C%20business%20meeting&width=1920&height=600&seq=2&orientation=landscape'); background-size: cover; background-position: center;">
-                <div class="container mx-auto px-6 h-full flex items-center">
-                    <div class="max-w-2xl text-white">
-                        <h1 class="text-5xl font-bold mb-4">Beyond Management. Toward Peace of Mind.</h1>
-                        <p class="text-xl mb-8">When your environment just works, your mind can rest. We deliver invisible consistency—so you can focus on what truly matters.</p>
-                        <button class="bg-primary text-white px-8 py-3 !rounded-button font-medium text-lg hover:bg-opacity-90 transition-all whitespace-nowrap cta-button">Experience the Difference →</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 3 -->
-            <div class="hero-slide" style="background-image: linear-gradient(rgba(3, 37, 57, 0.6), rgba(3, 37, 57, 0.6)), url('https://readdy.ai/api/search-image?query=modern%20office%20space%20with%20perfect%20maintenance%2C%20pristine%20floors%2C%20ergonomic%20furniture%2C%20plants%2C%20natural%20lighting%2C%20contemporary%20design%2C%20clean%20workstations%2C%20professional%20environment&width=1920&height=600&seq=3&orientation=landscape'); background-size: cover; background-position: center;">
-                <div class="container mx-auto px-6 h-full flex items-center">
-                    <div class="max-w-2xl text-white">
-                        <h1 class="text-5xl font-bold mb-4">Where Modern Facilities Meet Modern Solutions</h1>
-                        <p class="text-xl mb-8">From sleek offices to welcoming homes, we make smart environments feel effortless.</p>
-                        <button class="bg-primary text-white px-8 py-3 !rounded-button font-medium text-lg hover:bg-opacity-90 transition-all whitespace-nowrap cta-button">Let’s Elevate Your Facility →</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 4 -->
-            <div class="hero-slide" style="background-image: linear-gradient(rgba(3, 37, 57, 0.6), rgba(3, 37, 57, 0.6)), url('https://readdy.ai/api/search-image?query=diverse%20team%20of%20facility%20management%20professionals%20in%20an%20uplifting%20team%20gesture%2C%20high%20fiving%2C%20collaborative%20environment%2C%20professional%20uniforms%2C%20enthusiasm%2C%20teamwork%2C%20corporate%20setting&width=1920&height=600&seq=4&orientation=landscape'); background-size: cover; background-position: center;">
-                <div class="container mx-auto px-6 h-full flex items-center">
-                    <div class="max-w-2xl text-white">
-                        <h1 class="text-5xl font-bold mb-4">Hands That Build More Than Clean Spaces</h1>
-                        <p class="text-xl mb-8">We uplift communities by dignifying work, creating jobs, and supporting sustainability—one facility at a time.</p>
-                        <button class="bg-primary text-white px-8 py-3 !rounded-button font-medium text-lg hover:bg-opacity-90 transition-all whitespace-nowrap cta-button">Let’s Build Impact Together →</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 5 -->
-            <div class="hero-slide" style="background-image: linear-gradient(rgba(3, 37, 57, 0.6), rgba(3, 37, 57, 0.6)), url('https://readdy.ai/api/search-image?query=hands-on%20facility%20service%20technician%20working%20on%20maintenance%20task%2C%20professional%20uniform%2C%20focused%20expression%2C%20modern%20tools%2C%20technical%20expertise%2C%20real%20working%20environment&width=1920&height=600&seq=5&orientation=landscape'); background-size: cover; background-position: center;">
-                <div class="container mx-auto px-6 h-full flex items-center">
-                    <div class="max-w-2xl text-white">
-                        <h1 class="text-5xl font-bold mb-4">Relentless on Quality. Reliable Every Day.</h1>
-                        <p class="text-xl mb-8">Because excellence isn’t a one-time act. It’s our everyday commitment.</p>
-                        <button class="bg-primary text-white px-8 py-3 !rounded-button font-medium text-lg hover:bg-opacity-90 transition-all whitespace-nowrap cta-button">Get Unmatched Consistency →</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Navigation Arrows -->
-            <button id="prev-slide" class="carousel-arrow absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white w-12 h-12 rounded-full flex items-center justify-center z-10">
-                <i class="ri-arrow-left-s-line ri-2x"></i>
-            </button>
-            <button id="next-slide" class="carousel-arrow absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white w-12 h-12 rounded-full flex items-center justify-center z-10">
-                <i class="ri-arrow-right-s-line ri-2x"></i>
-            </button>
-            
-            <!-- Indicators -->
-            <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-2 z-10">
-                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 indicator active" data-slide="0"></button>
-                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 indicator" data-slide="1"></button>
-                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 indicator" data-slide="2"></button>
-                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 indicator" data-slide="3"></button>
-                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 indicator" data-slide="4"></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-[#032539] mb-16">What Would You Like to Elevate Today?</h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Soft Services Card -->
-                <div class="service-card bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=pristine%20clean%20office%20space%20with%20perfect%20maintenance%2C%20spotless%20floors%2C%20organized%20desk%20space%2C%20indoor%20plants%2C%20natural%20lighting%2C%20professional%20cleaning%20equipment%20visible%2C%20modern%20office%20environment&width=600&height=400&seq=6&orientation=landscape" alt="Soft Services" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-[#032539] mb-3">Soft Services</h3>
-                        <p class="text-gray-700 mb-4">Comprehensive solutions that maintain the appearance, cleanliness, and comfort of your facilities.</p>
-                        <div class="service-content pt-2">
-                            <ul class="space-y-2 text-gray-700 mb-6">
-                                <li class="flex items-start">
-                                    <span class="w-5 h-5 mr-2 text-primary flex-shrink-0 mt-1"><i class="ri-check-line"></i></span>
-                                    <span>Professional cleaning services tailored to your environment</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="w-5 h-5 mr-2 text-primary flex-shrink-0 mt-1"><i class="ri-check-line"></i></span>
-                                    <span>Landscaping and grounds maintenance</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="w-5 h-5 mr-2 text-primary flex-shrink-0 mt-1"><i class="ri-check-line"></i></span>
-                                    <span>Waste management and recycling programs</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="w-5 h-5 mr-2 text-primary flex-shrink-0 mt-1"><i class="ri-check-line"></i></span>
-                                    <span>Reception and front-of-house services</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="w-5 h-5 mr-2 text-primary flex-shrink-0 mt-1"><i class="ri-check-line"></i></span>
-                                    <span>Mail room and courier management</span>
-                                </li>
-                            </ul>
-                            <button class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap cta-button">Learn More</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Hard Services Card -->
-                <div class="service-card bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=behind-the-scenes%20facility%20maintenance%2C%20technician%20working%20on%20electrical%20panel%2C%20professional%20tools%2C%20HVAC%20system%2C%20technical%20equipment%2C%20maintenance%20worker%20in%20uniform%2C%20industrial%20setting&width=600&height=400&seq=7&orientation=landscape" alt="Hard Services" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-[#032539] mb-3">Hard Services</h3>
-                        <p class="text-gray-700 mb-4">Technical expertise that ensures your building systems operate efficiently, safely, and reliably.</p>
-                        <div class="service-content pt-2">
-                            <ul class="space-y-2 text-gray-700 mb-6">
-                                <li class="flex items-start">
-                                    <span class="w-5 h-5 mr-2 text-primary flex-shrink-0 mt-1"><i class="ri-check-line"></i></span>
-                                    <span>Electrical systems maintenance and repairs</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="w-5 h-5 mr-2 text-primary flex-shrink-0 mt-1"><i class="ri-check-line"></i></span>
-                                    <span>Plumbing installation and emergency services</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="w-5 h-5 mr-2 text-primary flex-shrink-0 mt-1"><i class="ri-check-line"></i></span>
-                                    <span>HVAC system optimization and servicing</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="w-5 h-5 mr-2 text-primary flex-shrink-0 mt-1"><i class="ri-check-line"></i></span>
-                                    <span>Building automation and controls</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="w-5 h-5 mr-2 text-primary flex-shrink-0 mt-1"><i class="ri-check-line"></i></span>
-                                    <span>Preventative maintenance programs</span>
-                                </li>
-                            </ul>
-                            <button class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap cta-button">Learn More</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Need Help Card -->
-                <div class="service-card bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=facility%20management%20consultation%2C%20professionals%20discussing%20plans%2C%20blueprint%20on%20table%2C%20tablet%20showing%20data%2C%20diverse%20team%20in%20discussion%2C%20modern%20meeting%20room%2C%20professional%20setting&width=600&height=400&seq=8&orientation=landscape" alt="Need Help Deciding" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-semibold text-[#032539] mb-3">Need Help Deciding?</h3>
-                        <p class="text-gray-700 mb-4">Let us guide you to the perfect solution based on your specific facility needs and goals.</p>
-                        <div class="service-content pt-2">
-                            <form class="space-y-4 mb-6">
-                                <div>
-                                    <label for="facility-type" class="block text-gray-700 mb-1">Facility Type</label>
-                                    <div class="relative">
-                                        <select id="facility-type" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-700 bg-white appearance-none pr-8">
-                                            <option value="">Select your facility type</option>
-                                            <option value="office">Office Building</option>
-                                            <option value="healthcare">Healthcare Facility</option>
-                                            <option value="education">Educational Institution</option>
-                                            <option value="retail">Retail Space</option>
-                                            <option value="industrial">Industrial Facility</option>
-                                        </select>
-                                        <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-gray-700">
-                                            <i class="ri-arrow-down-s-line"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="priority" class="block text-gray-700 mb-1">Top Priority</label>
-                                    <div class="relative">
-                                        <select id="priority" class="w-full px-4 py-2 border border-gray-300 rounded text-gray-700 bg-white appearance-none pr-8">
-                                            <option value="">Select your top priority</option>
-                                            <option value="cost">Cost Efficiency</option>
-                                            <option value="sustainability">Sustainability</option>
-                                            <option value="quality">Service Quality</option>
-                                            <option value="response">Response Time</option>
-                                        </select>
-                                        <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-gray-700">
-                                            <i class="ri-arrow-down-s-line"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <button class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap cta-button">Get Recommendations</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Parallax Section -->
-    <section class="parallax relative py-24" style="background-image: linear-gradient(rgba(3, 37, 57, 0.7), rgba(3, 37, 57, 0.7)), url('https://readdy.ai/api/search-image?query=collage%20of%20valued%20spaces%20-%20modern%20office%2C%20healthcare%20facility%2C%20and%20education%20building%2C%20professional%20architecture%2C%20well-maintained%20facilities%2C%20pristine%20conditions%2C%20natural%20lighting%2C%20contemporary%20design&width=1920&height=600&seq=9&orientation=landscape'); background-size: cover; background-position: center;">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-3xl mx-auto text-center text-white">
-                <h2 class="text-4xl font-bold mb-8">Why Valued Spaces Don’t Compromise</h2>
-                <h3 class="text-2xl font-semibold mb-6">At Home or At Work, We Elevate What Matters</h3>
-                <p class="text-xl mb-10 leading-relaxed">
-                    Valued spaces aren’t run-of-the-mill — they’re lived in, led from, and relied on. They carry your name, your standards, your success.<br><br>
-                    That’s why the people who care deeply don’t settle. They choose partners who notice the details others miss — who protect the small things that power big outcomes.<br><br>
-                    At Fesma, we don’t just maintain. We elevate. We think ahead. Solve quietly. Deliver reliably.<br><br>
-                    Because when your environment works effortlessly, everything else can rise with it — your team, your operations, your peace of mind.
-                </p>
-                <div class="grid md:grid-cols-3 gap-8 text-center">
-                    <div class="p-6 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm">
-                        <div class="w-16 h-16 mx-auto mb-4 text-primary flex items-center justify-center">
-                            <i class="ri-shield-check-line ri-3x"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Reliability</h3>
-                        <p>Consistent service delivery you can count on, every day.</p>
-                    </div>
-                    <div class="p-6 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm">
-                        <div class="w-16 h-16 mx-auto mb-4 text-primary flex items-center justify-center">
-                            <i class="ri-recycle-line ri-3x"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Sustainability</h3>
-                        <p>Eco-friendly practices that reduce environmental impact.</p>
-                    </div>
-                    <div class="p-6 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm">
-                        <div class="w-16 h-16 mx-auto mb-4 text-primary flex items-center justify-center">
-                            <i class="ri-line-chart-line ri-3x"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Efficiency</h3>
-                        <p>Optimized operations that save time and resources.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Clients Section -->
-    <section id="clients" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-[#032539] mb-16">Our Hall of No Compromise</h2>
-            <p class="text-center max-w-3xl mx-auto mb-8">
-                Not all clients are created equal. Some demand more. Think sharper. Care deeper.<br><br>
-                They don’t just want clean — they want consistent. Not just service — but standards.<br><br>
-                This is where they live. Where they lead. Where they chose Fesma.<br><br>
-                Welcome to our Hall of No Compromise — a showcase of those who hold the bar high, and trust us to meet it, every time.
-            </p>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Corporate & Commercial Card -->
-                <div class="client-card bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md h-64 relative">
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#032539] opacity-70"></div>
-                    <img src="https://readdy.ai/api/search-image?query=modern%20commercial%20office%20building%2C%20corporate%20headquarters%2C%20professional%20architecture%2C%20glass%20facade%2C%20business%20district%2C%20well-maintained%20exterior&width=600&height=400&seq=10&orientation=landscape" alt="Corporate & Commercial" class="w-full h-full object-cover object-top">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="text-2xl font-semibold mb-2">Corporate & Commercial</h3>
-                        <div class="client-info">
-                            <p class="mb-4">Creating productive workspaces that reflect your brand values and support your business goals.</p>
-                            <div class="flex items-center">
-                                <span class="w-8 h-8 mr-2 text-primary flex items-center justify-center">
-                                    <i class="ri-building-line ri-lg"></i>
-                                </span>
-                                <span>Office buildings, retail spaces, and corporate campuses</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Healthcare & Institutions Card -->
-                <div class="client-card bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md h-64 relative">
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#032539] opacity-70"></div>
-                    <img src="https://readdy.ai/api/search-image?query=modern%20healthcare%20facility%2C%20hospital%20exterior%2C%20medical%20center%2C%20clean%20and%20welcoming%20entrance%2C%20professional%20healthcare%20environment%2C%20well-maintained%20medical%20facility&width=600&height=400&seq=11&orientation=landscape" alt="Healthcare & Institutions" class="w-full h-full object-cover object-top">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="text-2xl font-semibold mb-2">Healthcare & Institutions</h3>
-                        <div class="client-info">
-                            <p class="mb-4">Maintaining healing environments that prioritize patient comfort, safety, and exceptional care.</p>
-                            <div class="flex items-center">
-                                <span class="w-8 h-8 mr-2 text-primary flex items-center justify-center">
-                                    <i class="ri-heart-pulse-line ri-lg"></i>
-                                </span>
-                                <span>Hospitals, clinics, and medical office buildings</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Education & Training Card -->
-                <div class="client-card bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md h-64 relative">
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#032539] opacity-70"></div>
-                    <img src="https://readdy.ai/api/search-image?query=modern%20educational%20institution%2C%20university%20campus%2C%20school%20building%2C%20academic%20environment%2C%20well-maintained%20educational%20facility%2C%20learning%20spaces&width=600&height=400&seq=12&orientation=landscape" alt="Education & Training" class="w-full h-full object-cover object-top">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="text-2xl font-semibold mb-2">Education & Training</h3>
-                        <div class="client-info">
-                            <p class="mb-4">Supporting learning environments that inspire students and faculty to achieve their best.</p>
-                            <div class="flex items-center">
-                                <span class="w-8 h-8 mr-2 text-primary flex items-center justify-center">
-                                    <i class="ri-book-open-line ri-lg"></i>
-                                </span>
-                                <span>Universities, schools, and research facilities</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Property & Real Estate Card -->
-                <div class="client-card bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md h-64 relative">
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#032539] opacity-70"></div>
-                    <img src="https://readdy.ai/api/search-image?query=luxury%20residential%20property%2C%20modern%20apartment%20building%2C%20real%20estate%20development%2C%20well-maintained%20residential%20complex%2C%20professional%20property%20management&width=600&height=400&seq=13&orientation=landscape" alt="Property & Real Estate" class="w-full h-full object-cover object-top">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="text-2xl font-semibold mb-2">Property & Real Estate</h3>
-                        <div class="client-info">
-                            <p class="mb-4">Enhancing property value through meticulous maintenance and resident-focused service.</p>
-                            <div class="flex items-center">
-                                <span class="w-8 h-8 mr-2 text-primary flex items-center justify-center">
-                                    <i class="ri-home-line ri-lg"></i>
-                                </span>
-                                <span>Residential complexes, mixed-use developments</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Industrial & Logistics Card -->
-                <div class="client-card bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md h-64 relative">
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#032539] opacity-70"></div>
-                    <img src="https://readdy.ai/api/search-image?query=modern%20industrial%20facility%2C%20manufacturing%20plant%2C%20warehouse%2C%20clean%20industrial%20environment%2C%20well-maintained%20factory%2C%20professional%20industrial%20setting&width=600&height=400&seq=14&orientation=landscape" alt="Industrial & Logistics" class="w-full h-full object-cover object-top">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="text-2xl font-semibold mb-2">Industrial & Logistics</h3>
-                        <div class="client-info">
-                            <p class="mb-4">Ensuring operational continuity and safety in demanding industrial environments.</p>
-                            <div class="flex items-center">
-                                <span class="w-8 h-8 mr-2 text-primary flex items-center justify-center">
-                                    <i class="ri-factory-line ri-lg"></i>
-                                </span>
-                                <span>Manufacturing plants, warehouses, and distribution centers</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Public Sector & Development Card -->
-                <div class="client-card bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md h-64 relative">
-                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#032539] opacity-70"></div>
-                    <img src="https://readdy.ai/api/search-image?query=government%20building%2C%20public%20sector%20facility%2C%20civic%20center%2C%20professional%20architecture%2C%20well-maintained%20public%20building%2C%20government%20office&width=600&height=400&seq=15&orientation=landscape" alt="Public Sector & Development" class="w-full h-full object-cover object-top">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 class="text-2xl font-semibold mb-2">Public Sector & Development</h3>
-                        <div class="client-info">
-                            <p class="mb-4">Delivering transparent, efficient facility management for public spaces and government buildings.</p>
-                            <div class="flex items-center">
-                                <span class="w-8 h-8 mr-2 text-primary flex items-center justify-center">
-                                    <i class="ri-government-line ri-lg"></i>
-                                </span>
-                                <span>Government offices, civic centers, and public facilities</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-20 bg-[#FBF3F2]">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-[#032539] mb-16">Voices We're Proud to Elevate</h2>
-            
-            <div id="testimonial-carousel" class="relative max-w-4xl mx-auto">
-                <div class="testimonial-slide active h-[300px] relative">
-                    <div class="bg-white p-8 rounded-lg shadow-md flex flex-col md:flex-row gap-8 h-full">
-                        <div class="md:w-1/3 flex flex-col items-center">
-                            <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
-                                <img src="https://readdy.ai/api/search-image?query=professional%20business%20woman%20portrait%2C%20corporate%20headshot%2C%20confident%20expression%2C%20business%20attire%2C%20neutral%20background%2C%20high%20quality%20professional%20photo&width=200&height=200&seq=16&orientation=squarish" alt="Emily Richardson" class="w-full h-full object-cover">
-                            </div>
-                            <h4 class="text-lg font-semibold text-[#032539]">Emily Richardson</h4>
-                            <p class="text-sm text-gray-600">Facilities Director</p>
-                            <p class="text-sm text-gray-600">Horizon Healthcare</p>
-                        </div>
-                        <div class="md:w-2/3">
-                            <div class="text-4xl text-primary mb-4">"</div>
-                            <p class="text-gray-700 italic mb-4">Fesma Solutions transformed our healthcare facilities from functional to exceptional. Their attention to detail and understanding of healthcare environments has improved patient experience and staff satisfaction. Their proactive maintenance approach has reduced our downtime by 37% and extended the life of our critical systems.</p>
-                            <div class="flex">
-                                <div class="text-primary">
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-slide h-[300px] relative">
-                    <div class="bg-white p-8 rounded-lg shadow-md flex flex-col md:flex-row gap-8 h-full">
-                        <div class="md:w-1/3 flex flex-col items-center">
-                            <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
-                                <img src="https://readdy.ai/api/search-image?query=professional%20business%20man%20portrait%2C%20corporate%20headshot%2C%20confident%20middle-aged%20man%2C%20business%20suit%2C%20neutral%20background%2C%20high%20quality%20professional%20photo&width=200&height=200&seq=17&orientation=squarish" alt="Michael Donovan" class="w-full h-full object-cover">
-                            </div>
-                            <h4 class="text-lg font-semibold text-[#032539]">Michael Donovan</h4>
-                            <p class="text-sm text-gray-600">Property Manager</p>
-                            <p class="text-sm text-gray-600">Westfield Commercial</p>
-                        </div>
-                        <div class="md:w-2/3">
-                            <div class="text-4xl text-primary mb-4">"</div>
-                            <p class="text-gray-700 italic mb-4">Working with Fesma has been a game-changer for our commercial properties. Their integrated approach means we have one trusted partner for all our facility needs. Their team consistently goes above and beyond, and their technology platform gives us real-time insights that help us make better decisions for our tenants and investors.</p>
-                            <div class="flex">
-                                <div class="text-primary">
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-slide h-[300px] relative">
-                    <div class="bg-white p-8 rounded-lg shadow-md flex flex-col md:flex-row gap-8 h-full">
-                        <div class="md:w-1/3 flex flex-col items-center">
-                            <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
-                                <img src="https://readdy.ai/api/search-image?query=professional%20business%20woman%20portrait%2C%20corporate%20headshot%2C%20confident%20woman%20of%20color%2C%20business%20attire%2C%20neutral%20background%2C%20high%20quality%20professional%20photo&width=200&height=200&seq=18&orientation=squarish" alt="Sophia Martinez" class="w-full h-full object-cover">
-                            </div>
-                            <h4 class="text-lg font-semibold text-[#032539]">Sophia Martinez</h4>
-                            <p class="text-sm text-gray-600">Campus Operations Director</p>
-                            <p class="text-sm text-gray-600">Eastwood University</p>
-                        </div>
-                        <div class="md:w-2/3">
-                            <div class="text-4xl text-primary mb-4">"</div>
-                            <p class="text-gray-700 italic mb-4">Our university campus requires specialized care across diverse facilities—from laboratories to dormitories. Fesma's team understands the unique needs of educational environments and has implemented sustainable solutions that have reduced our energy consumption by 22%. Their responsive service and transparent communication make them an invaluable partner in our mission.</p>
-                            <div class="flex">
-                                <div class="text-primary">
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-half-fill"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Navigation Arrows -->
-                <button id="prev-testimonial" class="carousel-arrow absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-12 bg-white text-[#032539] w-10 h-10 rounded-full flex items-center justify-center shadow-md z-10">
-                    <i class="ri-arrow-left-s-line ri-lg"></i>
-                </button>
-                <button id="next-testimonial" class="carousel-arrow absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 bg-white text-[#032539] w-10 h-10 rounded-full flex items-center justify-center shadow-md z-10">
-                    <i class="ri-arrow-right-s-line ri-lg"></i>
-                </button>
-                
-                <!-- Indicators -->
-                <div class="flex justify-center space-x-2 mt-8">
-                    <button class="w-3 h-3 rounded-full bg-[#032539] bg-opacity-50 testimonial-indicator active" data-slide="0"></button>
-                    <button class="w-3 h-3 rounded-full bg-[#032539] bg-opacity-50 testimonial-indicator" data-slide="1"></button>
-                    <button class="w-3 h-3 rounded-full bg-[#032539] bg-opacity-50 testimonial-indicator" data-slide="2"></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Careers Section -->
-    <section id="careers" class="py-20 bg-white">
-        <div class="relative overflow-hidden">
-            <div class="absolute inset-0 z-0">
-                <img src="https://readdy.ai/api/search-image?query=diverse%20happy%20team%20of%20facility%20management%20professionals%2C%20group%20photo%2C%20teamwork%2C%20professional%20uniforms%2C%20smiling%20employees%2C%20collaborative%20environment%2C%20corporate%20team&width=1920&height=600&seq=19&orientation=landscape" alt="Team" class="w-full h-full object-cover object-top">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#032539] to-transparent opacity-90"></div>
-            </div>
-            
-            <div class="container mx-auto px-6 py-20 relative z-10">
-                <div class="max-w-2xl text-white">
-                    <h2 class="text-4xl font-bold mb-6">Start. Thrive. Elevate With Us.</h2>
-                    <p class="text-xl mb-8">Join a team where your skills are valued, your growth is supported, and your contributions make a real difference in the spaces people use every day.</p>
-                    
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-primary counter-value" data-target="450">0</div>
-                            <p class="text-sm mt-2">Team Members</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-primary counter-value" data-target="15">0</div>
-                            <p class="text-sm mt-2">Years of Excellence</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-primary counter-value" data-target="98">0</div>
-                            <p class="text-sm mt-2">Client Retention %</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-primary counter-value" data-target="1000000">0</div>
-                            <p class="text-sm mt-2">Lives Impacted</p>
-                        </div>
-                    </div>
-                    
-                    <button class="bg-primary text-white px-8 py-3 !rounded-button font-medium text-lg hover:bg-opacity-90 transition-all whitespace-nowrap cta-button">Grow With Fesma</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="py-20 bg-[#FBF3F2]">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-[#032539] mb-16">The Elevation Journal</h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Blog Post 1 -->
-                <div class="blog-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=sustainable%20facility%20management%20practices%2C%20green%20building%2C%20energy%20efficient%20systems%2C%20solar%20panels%2C%20modern%20sustainable%20architecture%2C%20professional%20facility&width=600&height=300&seq=20&orientation=landscape" alt="Sustainability in Facility Management" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center text-sm text-gray-500 mb-3">
-                            <span class="w-5 h-5 mr-1 flex items-center justify-center">
-                                <i class="ri-calendar-line"></i>
-                            </span>
-                            <span>July 2, 2025</span>
-                            <span class="mx-2">•</span>
-                            <span class="w-5 h-5 mr-1 flex items-center justify-center">
-                                <i class="ri-time-line"></i>
-                            </span>
-                            <span>5 min read</span>
-                        </div>
-                        <h3 class="text-xl font-semibold text-[#032539] mb-3">5 Sustainable Practices Transforming Facility Management</h3>
-                        <p class="text-gray-700 mb-4">Discover how leading facility management companies are implementing eco-friendly solutions that reduce environmental impact while improving operational efficiency.</p>
-                        <div class="blog-summary pt-2">
-                            <p class="text-gray-600 mb-4">From energy-efficient systems to waste reduction programs, learn how sustainability initiatives are becoming a cornerstone of modern facility management strategies.</p>
-                            <a href="#" class="text-primary font-medium flex items-center hover:underline">
-                                Read More
-                                <span class="w-5 h-5 ml-1 flex items-center justify-center">
-                                    <i class="ri-arrow-right-line"></i>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Blog Post 2 -->
-                <div class="blog-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=smart%20building%20technology%2C%20facility%20management%20automation%2C%20IoT%20sensors%2C%20digital%20dashboard%2C%20modern%20building%20controls%2C%20professional%20tech%20environment&width=600&height=300&seq=21&orientation=landscape" alt="Smart Building Technology" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center text-sm text-gray-500 mb-3">
-                            <span class="w-5 h-5 mr-1 flex items-center justify-center">
-                                <i class="ri-calendar-line"></i>
-                            </span>
-                            <span>June 28, 2025</span>
-                            <span class="mx-2">•</span>
-                            <span class="w-5 h-5 mr-1 flex items-center justify-center">
-                                <i class="ri-time-line"></i>
-                            </span>
-                            <span>7 min read</span>
-                        </div>
-                        <h3 class="text-xl font-semibold text-[#032539] mb-3">The Rise of Smart Building Technology in IFM</h3>
-                        <p class="text-gray-700 mb-4">How IoT sensors, AI, and automation are revolutionizing the way facilities are managed and optimized for performance and occupant comfort.</p>
-                        <div class="blog-summary pt-2">
-                            <p class="text-gray-600 mb-4">Explore real-world case studies of smart building implementations that have resulted in significant cost savings, improved occupant satisfaction, and enhanced operational efficiency.</p>
-                            <a href="#" class="text-primary font-medium flex items-center hover:underline">
-                                Read More
-                                <span class="w-5 h-5 ml-1 flex items-center justify-center">
-                                    <i class="ri-arrow-right-line"></i>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Blog Post 3 -->
-                <div class="blog-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://readdy.ai/api/search-image?query=workplace%20wellness%20design%2C%20ergonomic%20office%20space%2C%20biophilic%20design%20elements%2C%20plants%20in%20office%2C%20natural%20lighting%2C%20comfortable%20work%20environment%2C%20professional%20office%20design&width=600&height=300&seq=22&orientation=landscape" alt="Workplace Wellness" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center text-sm text-gray-500 mb-3">
-                            <span class="w-5 h-5 mr-1 flex items-center justify-center">
-                                <i class="ri-calendar-line"></i>
-                            </span>
-                            <span>June 15, 2025</span>
-                            <span class="mx-2">•</span>
-                            <span class="w-5 h-5 mr-1 flex items-center justify-center">
-                                <i class="ri-time-line"></i>
-                            </span>
-                            <span>6 min read</span>
-                        </div>
-                        <h3 class="text-xl font-semibold text-[#032539] mb-3">Designing for Wellness: The Human-Centric Facility</h3>
-                        <p class="text-gray-700 mb-4">Why leading organizations are prioritizing wellness-focused facility design and management to boost productivity, retention, and overall satisfaction.</p>
-                        <div class="blog-summary pt-2">
-                            <p class="text-gray-600 mb-4">From biophilic design to air quality management, discover the key elements of wellness-focused facilities and how they're reshaping the modern workplace experience.</p>
-                            <a href="#" class="text-primary font-medium flex items-center hover:underline">
-                                Read More
-                                <span class="w-5 h-5 ml-1 flex items-center justify-center">
-                                    <i class="ri-arrow-right-line"></i>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="#" class="bg-white text-[#032539] border border-[#032539] px-6 py-2 !rounded-button font-medium hover:bg-[#032539] hover:text-white transition-all whitespace-nowrap">View All Articles</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-[#032539] text-white pt-16 pb-8">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-                <div class="lg:col-span-2" id="contact">
-                    <h2 class="text-3xl font-bold mb-6">Start Your Journey Where Spaces — and People — Rise</h2>
-                    <p class="mb-6">Experience facility management that goes beyond maintenance to create environments where excellence thrives.</p>
-                    <form class="flex flex-col sm:flex-row gap-2 mb-6">
-                        <input type="email" placeholder="Your email address" class="px-4 py-3 rounded bg-white bg-opacity-10 border-none text-white placeholder-gray-300 flex-grow">
-                        <button class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap cta-button">Subscribe</button>
-                    </form>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">About</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-primary transition-colors">Our Story</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Leadership</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Certifications</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Sustainability</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">News & Press</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Services</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-primary transition-colors">Soft Services</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Hard Services</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Energy Management</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Project Management</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Consulting</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-primary transition-colors">Contact Us</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Careers</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Locations</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Support</a></li>
-                        <li>
-                            <div class="flex space-x-4 mt-4">
-                                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition-colors">
-                                    <i class="ri-linkedin-fill"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition-colors">
-                                    <i class="ri-twitter-x-fill"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition-colors">
-                                    <i class="ri-facebook-fill"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition-colors">
-                                    <i class="ri-instagram-fill"></i>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <hr class="border-white border-opacity-20 mb-8">
-            
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p>&copy; 2025 Fesma Solutions. All rights reserved.</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
-                    <a href="#" class="hover:text-primary transition-colors">Cookie Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Hero Carousel Script -->
-    <script id="hero-carousel-script">
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.hero-slide');
-            const indicators = document.querySelectorAll('.indicator');
-            const prevBtn = document.getElementById('prev-slide');
-            const nextBtn = document.getElementById('next-slide');
-            let currentSlide = 0;
-            let slideInterval;
-            
-            function showSlide(index) {
-                slides.forEach(slide => {
-                    slide.classList.remove('active');
-                });
-                indicators.forEach(indicator => {
-                    indicator.classList.remove('active');
-                    indicator.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
-                });
-                
-                slides[index].classList.add('active');
-                indicators[index].classList.add('active');
-                indicators[index].style.backgroundColor = 'rgba(255, 255, 255, 1)';
-                currentSlide = index;
-            }
-            
-            function nextSlide() {
-                let next = currentSlide + 1;
-                if (next >= slides.length) {
-                    next = 0;
-                }
-                showSlide(next);
-            }
-            
-            function prevSlide() {
-                let prev = currentSlide - 1;
-                if (prev < 0) {
-                    prev = slides.length - 1;
-                }
-                showSlide(prev);
-            }
-            
-            function startSlideInterval() {
-                slideInterval = setInterval(nextSlide, 5000);
-            }
-            
-            prevBtn.addEventListener('click', function() {
-                prevSlide();
-                clearInterval(slideInterval);
-                startSlideInterval();
-            });
-            
-            nextBtn.addEventListener('click', function() {
-                nextSlide();
-                clearInterval(slideInterval);
-                startSlideInterval();
-            });
-            
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', function() {
-                    showSlide(index);
-                    clearInterval(slideInterval);
-                    startSlideInterval();
-                });
-            });
-            
-            startSlideInterval();
-        });
-    </script>
-
-    <!-- Testimonial Carousel Script -->
-    <script id="testimonial-carousel-script">
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.testimonial-slide');
-            const indicators = document.querySelectorAll('.testimonial-indicator');
-            const prevBtn = document.getElementById('prev-testimonial');
-            const nextBtn = document.getElementById('next-testimonial');
-            let currentSlide = 0;
-            let slideInterval;
-            
-            function showSlide(index) {
-                slides.forEach(slide => {
-                    slide.classList.remove('active');
-                });
-                indicators.forEach(indicator => {
-                    indicator.classList.remove('active');
-                    indicator.style.backgroundColor = 'rgba(3, 37, 57, 0.5)';
-                });
-                
-                slides[index].classList.add('active');
-                indicators[index].classList.add('active');
-                indicators[index].style.backgroundColor = 'rgba(3, 37, 57, 1)';
-                currentSlide = index;
-            }
-            
-            function nextSlide() {
-                let next = currentSlide + 1;
-                if (next >= slides.length) {
-                    next = 0;
-                }
-                showSlide(next);
-            }
-            
-            function prevSlide() {
-                let prev = currentSlide - 1;
-                if (prev < 0) {
-                    prev = slides.length - 1;
-                }
-                showSlide(prev);
-            }
-            
-            function startSlideInterval() {
-                slideInterval = setInterval(nextSlide, 7000);
-            }
-            
-            prevBtn.addEventListener('click', function() {
-                prevSlide();
-                clearInterval(slideInterval);
-                startSlideInterval();
-            });
-            
-            nextBtn.addEventListener('click', function() {
-                nextSlide();
-                clearInterval(slideInterval);
-                startSlideInterval();
-            });
-            
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', function() {
-                    showSlide(index);
-                    clearInterval(slideInterval);
-                    startSlideInterval();
-                });
-            });
-            
-            startSlideInterval();
-        });
-    </script>
-
-    <!-- Counter Animation Script -->
-    <script id="counter-animation-script">
-        document.addEventListener('DOMContentLoaded', function() {
-            const counters = document.querySelectorAll('.counter-value');
-            let counted = false;
-            
-            function formatNumber(num) {
-                if (num >= 1000000) {
-                    return (num / 1000000).toFixed(1) + 'M';
-                }
-                if (num >= 1000) {
-                    return (num / 1000).toFixed(0) + 'K';
-                }
-                return num;
-            }
-            
-            function animateCounters() {
-                if (counted) return;
-                
-                const careersSection = document.getElementById('careers');
-                const careersSectionTop = careersSection.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (careersSectionTop < windowHeight * 0.75) {
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.getAttribute('data-target'));
-                        const duration = 2000; // ms
-                        const increment = target / (duration / 16);
-                        let current = 0;
-                        
-                        const updateCounter = () => {
-                            current += increment;
-                            if (current < target) {
-                                counter.textContent = formatNumber(Math.floor(current));
-                                requestAnimationFrame(updateCounter);
-                            } else {
-                                counter.textContent = formatNumber(target);
-                            }
-                        };
-                        
-                        updateCounter();
-                    });
-                    
-                    counted = true;
-                }
-            }
-            
-            window.addEventListener('scroll', animateCounters);
-            animateCounters(); // Check on load
-        });
-    </script>
-
-    <!-- Sticky Header Script -->
-    <script id="sticky-header-script">
-        document.addEventListener('DOMContentLoaded', function() {
-            const header = document.querySelector('.sticky-header');
-            
-            function updateHeaderStyle() {
-                if (window.scrollY > 50) {
-                    header.classList.add('bg-[#032539]');
-                    header.classList.remove('bg-white');
-                    header.querySelectorAll('a:not(.cta-button)').forEach(link => {
-                        link.classList.add('text-white');
-                        link.classList.remove('text-[#032539]');
-                    });
-                } else {
-                    header.classList.remove('bg-[#032539]');
-                    header.classList.add('bg-white');
-                    header.querySelectorAll('a:not(.cta-button)').forEach(link => {
-                        link.classList.remove('text-white');
-                        link.classList.add('text-[#032539]');
-                    });
-                }
-            }
-            
-            window.addEventListener('scroll', updateHeaderStyle);
-            updateHeaderStyle(); // Check on load
-
-            function updateSolutionsThatWorkColor(isScrolled) {
-                const solutionsBtn = document.querySelector('nav .group > button');
-                if (!solutionsBtn) return;
-                if (isScrolled) {
-                    solutionsBtn.classList.add('text-white');
-                    solutionsBtn.classList.remove('text-[#032539]');
-                } else {
-                    solutionsBtn.classList.remove('text-white');
-                    solutionsBtn.classList.add('text-[#032539]');
-                }
-            }
-
-            function updateHeaderStyle() {
-                const isScrolled = window.scrollY > 50;
-                const header = document.querySelector('.sticky-header');
-                const dropdown = document.getElementById('solutions-dropdown');
-                if (isScrolled) {
-                    header.classList.add('bg-[#032539]');
-                    header.classList.remove('bg-white');
-                    header.querySelectorAll('a:not(.cta-button)').forEach(link => {
-                        link.classList.add('text-white');
-                        link.classList.remove('text-[#032539]');
-                    });
-                    if (dropdown) {
-                        dropdown.classList.add('dropdown-dark');
-                        dropdown.classList.remove('dropdown-light');
-                    }
-                } else {
-                    header.classList.remove('bg-[#032539]');
-                    header.classList.add('bg-white');
-                    header.querySelectorAll('a:not(.cta-button)').forEach(link => {
-                        link.classList.remove('text-white');
-                        link.classList.add('text-[#032539]');
-                    });
-                    if (dropdown) {
-                        dropdown.classList.remove('dropdown-dark');
-                        dropdown.classList.add('dropdown-light');
-                    }
-                }
-                updateSolutionsThatWorkColor(isScrolled);
-            }
-        });
-    </script>
-
-    <!-- Parallax Effect Script -->
-    <script id="parallax-effect-script">
-        document.addEventListener('DOMContentLoaded', function() {
-            const parallaxSection = document.querySelector('.parallax');
-            
-            function updateParallax() {
-                const scrollPosition = window.pageYOffset;
-                const sectionTop = parallaxSection.offsetTop;
-                const sectionHeight = parallaxSection.offsetHeight;
-                
-                if (scrollPosition > sectionTop - window.innerHeight && scrollPosition < sectionTop + sectionHeight) {
-                    const yPos = -(scrollPosition - sectionTop) / 5;
-                    parallaxSection.style.backgroundPosition = `center ${yPos}px`;
-                }
-            }
-            
-            window.addEventListener('scroll', updateParallax);
-            updateParallax(); // Check on load
-        });
-    </script>
-
-    <!-- Mobile Nav Script -->
-    <script id="mobile-nav-script">
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuBtn = document.getElementById('mobile-menu-btn');
-            const mobileNav = document.getElementById('mobile-nav');
-            const closeBtn = mobileNav.querySelector('.close-btn');
-            // Open menu
-            menuBtn.addEventListener('click', function() {
-                mobileNav.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-            // Close menu
-            closeBtn.addEventListener('click', function() {
-                mobileNav.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-            // Close on nav link click
-            mobileNav.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileNav.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-        });
-    </script>
+<div class="md:hidden flex items-center">
+<button id="mobile-menu-button" class="text-gray-700 hover:text-primary focus:outline-none w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+<div class="hidden md:block">
+<a href="#contact" class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Get a Quote</a>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+<div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+<a href="#" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Home</a>
+<a href="#services" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Services</a>
+<a href="#clients" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Clients</a>
+<a href="#testimonials" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Testimonials</a>
+<a href="#careers" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Careers</a>
+<a href="#blog" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Blog</a>
+<a href="#contact" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">Contact</a>
+<a href="#contact" class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all text-center whitespace-nowrap">Get a Quote</a>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero-section min-h-screen flex items-center" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20African%20cleaning%20team%20in%20modern%20office%20environment%2C%20bright%20natural%20lighting%2C%20team%20members%20wearing%20branded%20uniforms%2C%20clean%20modern%20workspace%20with%20large%20windows%2C%20professional%20photography%20style%2C%20high%20quality%2C%20cinematic%20lighting&width=1920&height=1080&seq=hero1&orientation=landscape');">
+<div class="hero-overlay w-full h-full absolute inset-0"></div>
+<div class="container mx-auto px-4 py-20 relative z-10">
+<div class="w-full md:w-1/2 lg:w-2/5">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-[#032539] leading-tight mb-6">Elevating Spaces, Empowering People</h1>
+<p class="text-lg md:text-xl text-gray-700 mb-8">Professional cleaning and facilities management solutions that transform your environment and enhance wellbeing.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#services" class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-all text-center whitespace-nowrap">Explore Services</a>
+<a href="#contact" class="bg-white text-[#032539] border-2 border-[#032539] px-8 py-3 !rounded-button font-medium hover:bg-gray-50 transition-all text-center whitespace-nowrap">Contact Us</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section id="services" class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-[#032539] mb-4">What Would You Like to Elevate Today?</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">Choose from our comprehensive range of professional services designed to transform your spaces and enhance wellbeing.</p>
+<a href="#contact" class="inline-flex items-center gap-2 bg-[#1C768F] text-white px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">
+<i class="ri-customer-service-2-line"></i>
+<span>Not Sure? Let's Find Your Perfect Solution</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Professional Cleaning -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=professional%20African%20cleaning%20staff%20cleaning%20modern%20office%20space%2C%20using%20professional%20equipment%2C%20wearing%20branded%20uniforms%2C%20bright%20natural%20lighting%2C%20clean%20environment%2C%20high%20quality%20photography&width=600&height=400&seq=service1&orientation=landscape" alt="Professional Cleaning" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-2xl font-bold text-[#032539] mb-3">Professional Cleaning</h3>
+<p class="text-gray-600 mb-6">Comprehensive cleaning solutions tailored to your specific needs, from daily maintenance to deep cleaning services.</p>
+<ul class="mb-6 space-y-2">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Commercial & Office Cleaning</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Healthcare Facility Sanitization</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Educational Institution Cleaning</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Industrial & Warehouse Cleaning</span>
+</li>
+</ul>
+<button class="service-dropdown-toggle bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all w-full flex justify-between items-center whitespace-nowrap">
+<span>Learn More</span>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div class="service-dropdown mt-4">
+<p class="text-gray-600 mb-4">Our professional cleaning services are delivered by trained specialists using industry-leading equipment and eco-friendly products to ensure exceptional results.</p>
+<h4 class="font-semibold text-[#032539] mb-2">Our Process:</h4>
+<ol class="mb-4 space-y-2 list-decimal list-inside text-gray-600">
+<li>Initial assessment and customized planning</li>
+<li>Implementation of tailored cleaning protocols</li>
+<li>Regular quality control inspections</li>
+<li>Continuous improvement and adaptation</li>
+</ol>
+<a href="#contact" class="inline-block text-primary font-medium hover:underline">Request a consultation →</a>
+</div>
+</div>
+</div>
+<!-- Pest Control -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=professional%20African%20pest%20control%20specialist%20in%20uniform%20inspecting%20a%20commercial%20building%2C%20using%20professional%20equipment%2C%20bright%20natural%20lighting%2C%20clean%20environment%2C%20high%20quality%20photography&width=600&height=400&seq=service2&orientation=landscape" alt="Pest Control" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-2xl font-bold text-[#032539] mb-3">Pest Control</h3>
+<p class="text-gray-600 mb-6">Effective and environmentally responsible pest management solutions to protect your property and ensure a healthy environment.</p>
+<ul class="mb-6 space-y-2">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Integrated Pest Management</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Preventive Treatment Programs</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Emergency Pest Response</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Eco-friendly Solutions</span>
+</li>
+</ul>
+<button class="service-dropdown-toggle bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all w-full flex justify-between items-center whitespace-nowrap">
+<span>Learn More</span>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div class="service-dropdown mt-4">
+<p class="text-gray-600 mb-4">Our pest control experts use the latest techniques and environmentally responsible products to effectively eliminate and prevent pest infestations while minimizing impact on the environment.</p>
+<h4 class="font-semibold text-[#032539] mb-2">Common Pests We Handle:</h4>
+<ul class="mb-4 space-y-1 text-gray-600">
+<li>• Rodents (rats, mice)</li>
+<li>• Insects (cockroaches, ants, termites)</li>
+<li>• Flying insects (flies, mosquitoes)</li>
+<li>• Birds and wildlife</li>
+</ul>
+<a href="#contact" class="inline-block text-primary font-medium hover:underline">Schedule an inspection →</a>
+</div>
+</div>
+</div>
+<!-- Sanitary Services -->
+<div class="service-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300">
+<div class="h-64 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=professional%20African%20sanitation%20worker%20installing%20or%20maintaining%20sanitary%20equipment%20in%20a%20modern%20commercial%20bathroom%2C%20wearing%20branded%20uniform%2C%20bright%20clean%20environment%2C%20high%20quality%20photography&width=600&height=400&seq=service3&orientation=landscape" alt="Sanitary Services" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-2xl font-bold text-[#032539] mb-3">Sanitary Services</h3>
+<p class="text-gray-600 mb-6">Complete hygiene solutions for washrooms and facilities, ensuring cleanliness, compliance, and user comfort.</p>
+<ul class="mb-6 space-y-2">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Washroom Hygiene Solutions</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Sanitary Waste Management</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Air Freshening Systems</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-2 mt-1">
+<i class="ri-check-line text-primary"></i>
+</div>
+<span>Hand Hygiene Products</span>
+</li>
+</ul>
+<button class="service-dropdown-toggle bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all w-full flex justify-between items-center whitespace-nowrap">
+<span>Learn More</span>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div class="service-dropdown mt-4">
+<p class="text-gray-600 mb-4">Our sanitary services ensure your facilities maintain the highest standards of hygiene while providing a pleasant experience for users. We offer regular servicing and maintenance to prevent issues before they arise.</p>
+<h4 class="font-semibold text-[#032539] mb-2">Key Benefits:</h4>
+<ul class="mb-4 space-y-1 text-gray-600">
+<li>• Compliance with health regulations</li>
+<li>• Reduced risk of cross-contamination</li>
+<li>• Enhanced user experience</li>
+<li>• Environmentally responsible waste management</li>
+</ul>
+<a href="#contact" class="inline-block text-primary font-medium hover:underline">Get a customized plan →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Parallax Section -->
+<section class="parallax-section py-24 relative" style="background-image: url('https://readdy.ai/api/search-image?query=diverse%20group%20of%20satisfied%20African%20business%20clients%20in%20a%20pristine%2C%20well-maintained%20modern%20office%20environment%2C%20bright%20natural%20lighting%2C%20clean%20workspace%2C%20professional%20photography%2C%20high%20quality%20image%20with%20shallow%20depth%20of%20field&width=1920&height=800&seq=parallax1&orientation=landscape');">
+<div class="absolute inset-0 bg-[#032539] bg-opacity-70"></div>
+<div class="container mx-auto px-4 relative z-10">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Why Valued Spaces Don't Compromise</h2>
+<p class="text-xl text-white mb-10">At Fesma, we believe that exceptional spaces require exceptional care. Our commitment to quality, sustainability, and people-centered service sets us apart.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+<div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-lg">
+<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary rounded-full">
+<i class="ri-team-line ri-xl text-white"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-2">Expert Teams</h3>
+<p class="text-white text-opacity-90">Trained professionals delivering consistent excellence</p>
+</div>
+<div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-lg">
+<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary rounded-full">
+<i class="ri-recycle-line ri-xl text-white"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-2">Eco-Friendly</h3>
+<p class="text-white text-opacity-90">Sustainable practices and responsible product selection</p>
+</div>
+<div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-lg">
+<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary rounded-full">
+<i class="ri-shield-check-line ri-xl text-white"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-2">Guaranteed Results</h3>
+<p class="text-white text-opacity-90">Measurable outcomes and satisfaction assurance</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Clients Section -->
+<section id="clients" class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-[#032539] mb-4">Our Hall of No Compromise</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Trusted by leading organizations across diverse sectors to maintain exceptional standards in their facilities.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Commercial -->
+<div class="bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 relative">
+<div class="absolute top-4 right-4 z-10">
+<img src="https://readdy.ai/api/search-image?query=modern%20minimalist%20office%20building%20logo%2C%20corporate%20style%2C%20simple%20lines%2C%20professional%20design&width=100&height=100&seq=logo1&orientation=squarish" alt="Commercial Logo" class="w-12 h-12 rounded-lg object-contain bg-white p-2 shadow-sm">
+</div>
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=modern%20African%20commercial%20office%20building%20exterior%20or%20lobby%2C%20clean%20professional%20environment%2C%20bright%20natural%20lighting%2C%20high%20quality%20photography&width=600&height=400&seq=client1&orientation=landscape" alt="Commercial Sector" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-[#032539] mb-2">Commercial</h3>
+<p class="text-gray-600 mb-4">Office buildings, retail spaces, and corporate environments that demand the highest standards of cleanliness and presentation.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Office Complexes</span>
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Retail Centers</span>
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Corporate HQs</span>
+</div>
+</div>
+</div>
+<!-- Healthcare -->
+<div class="bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=modern%20African%20healthcare%20facility%20reception%20or%20corridor%2C%20clean%20sterile%20environment%2C%20medical%20staff%20and%20patients%2C%20bright%20natural%20lighting%2C%20high%20quality%20photography&width=600&height=400&seq=client2&orientation=landscape" alt="Healthcare Sector" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-[#032539] mb-2">Healthcare</h3>
+<p class="text-gray-600 mb-4">Medical facilities where cleanliness and sanitization are critical for patient safety and regulatory compliance.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Hospitals</span>
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Clinics</span>
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Medical Offices</span>
+</div>
+</div>
+</div>
+<!-- Education -->
+<div class="bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=modern%20African%20school%20or%20university%20campus%2C%20clean%20educational%20environment%2C%20students%20in%20hallway%20or%20classroom%2C%20bright%20natural%20lighting%2C%20high%20quality%20photography&width=600&height=400&seq=client3&orientation=landscape" alt="Education Sector" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-[#032539] mb-2">Education</h3>
+<p class="text-gray-600 mb-4">Educational institutions requiring safe, clean environments that support learning and student wellbeing.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Universities</span>
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Schools</span>
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Training Centers</span>
+</div>
+</div>
+</div>
+<!-- Property -->
+<div class="bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=modern%20African%20residential%20apartment%20building%20or%20property%20complex%2C%20clean%20well-maintained%20common%20areas%2C%20bright%20natural%20lighting%2C%20high%20quality%20photography&width=600&height=400&seq=client4&orientation=landscape" alt="Property Sector" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-[#032539] mb-2">Property</h3>
+<p class="text-gray-600 mb-4">Residential and commercial properties where cleanliness enhances value and tenant satisfaction.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Apartments</span>
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Condominiums</span>
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Property Management</span>
+</div>
+</div>
+</div>
+<!-- Logistics -->
+<div class="bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=modern%20African%20warehouse%20or%20logistics%20facility%20interior%2C%20clean%20organized%20environment%2C%20workers%20in%20uniform%2C%20bright%20lighting%2C%20high%20quality%20photography&width=600&height=400&seq=client5&orientation=landscape" alt="Logistics Sector" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-[#032539] mb-2">Logistics</h3>
+<p class="text-gray-600 mb-4">Warehouses and distribution centers requiring specialized cleaning for operational efficiency and safety.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Warehouses</span>
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Distribution Centers</span>
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Logistics Hubs</span>
+</div>
+</div>
+</div>
+<!-- Public Sector -->
+<div class="bg-[#FBF3F2] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=modern%20African%20government%20building%20or%20public%20facility%2C%20clean%20professional%20environment%2C%20people%20in%20lobby%20or%20corridor%2C%20bright%20natural%20lighting%2C%20high%20quality%20photography&width=600&height=400&seq=client6&orientation=landscape" alt="Public Sector" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-[#032539] mb-2">Public Sector</h3>
+<p class="text-gray-600 mb-4">Government facilities and public spaces requiring reliable, accountable cleaning and maintenance services.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Government Offices</span>
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Public Buildings</span>
+<span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700">Municipal Facilities</span>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<a href="#contact" class="inline-block bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Become Our Client</a>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-20 bg-[#FBF3F2]">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-[#032539] mb-4">Voices We're Proud to Elevate</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Hear from our clients about how our services have transformed their spaces and operations.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+<div class="flex items-center mb-4">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-double-quotes-l ri-2x"></i>
+</div>
+</div>
+<p class="text-gray-700 mb-6">Fesma has transformed our office environment completely. Their attention to detail and consistent quality have made a noticeable difference in employee satisfaction and visitor impressions. Their team is professional, reliable and always goes the extra mile.</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-[#1C768F] rounded-full flex items-center justify-center text-white font-bold">JN</div>
+<div class="ml-4">
+<h4 class="font-semibold text-[#032539]">James Ndungu</h4>
+<p class="text-sm text-gray-600">Facilities Manager, Savannah Technologies</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+<div class="flex items-center mb-4">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-double-quotes-l ri-2x"></i>
+</div>
+</div>
+<p class="text-gray-700 mb-6">As a healthcare provider, maintaining impeccable cleanliness is non-negotiable. Fesma understands the unique requirements of our industry and delivers consistently exceptional results. Their staff is well-trained, thorough, and respectful of our sensitive environment.</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-[#1C768F] rounded-full flex items-center justify-center text-white font-bold">LO</div>
+<div class="ml-4">
+<h4 class="font-semibold text-[#032539]">Dr. Lydia Omondi</h4>
+<p class="text-sm text-gray-600">Director, Westlands Medical Center</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+<div class="flex items-center mb-4">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-double-quotes-l ri-2x"></i>
+</div>
+</div>
+<p class="text-gray-700 mb-6">We've worked with several cleaning companies over the years, but Fesma stands out for their consistency and professionalism. Their integrated approach to facilities management has simplified our operations and improved our overall environment.</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-[#1C768F] rounded-full flex items-center justify-center text-white font-bold">MK</div>
+<div class="ml-4">
+<h4 class="font-semibold text-[#032539]">Michael Kimani</h4>
+<p class="text-sm text-gray-600">Property Manager, Horizon Properties</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Careers Section -->
+<section id="careers" class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 mb-10 md:mb-0 md:pr-12">
+<h2 class="text-3xl md:text-4xl font-bold text-[#032539] mb-6">Start. Thrive. Elevate — With Us</h2>
+<p class="text-lg text-gray-600 mb-6">Join a team that values dignity, growth, and purpose. At Fesma, we believe that exceptional service begins with exceptional people.</p>
+<div class="space-y-4 mb-8">
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-[#1C768F] rounded-full text-white mr-4 shrink-0">
+<i class="ri-award-line"></i>
+</div>
+<div>
+<h3 class="font-semibold text-[#032539] mb-1">Professional Development</h3>
+<p class="text-gray-600">Continuous training and clear career advancement paths</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-[#1C768F] rounded-full text-white mr-4 shrink-0">
+<i class="ri-team-line"></i>
+</div>
+<div>
+<h3 class="font-semibold text-[#032539] mb-1">Supportive Community</h3>
+<p class="text-gray-600">A collaborative environment where everyone is valued</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-[#1C768F] rounded-full text-white mr-4 shrink-0">
+<i class="ri-heart-line"></i>
+</div>
+<div>
+<h3 class="font-semibold text-[#032539] mb-1">Meaningful Work</h3>
+<p class="text-gray-600">Make a tangible difference in the spaces people use every day</p>
+</div>
+</div>
+</div>
+<a href="https://readdy.ai/home/f51671bd-d636-4e74-ba4b-506f58ec3c0f/54fc4045-adb4-40ac-b06c-6cfed3d96f80" data-readdy="true" class="inline-flex items-center bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-plant-line"></i>
+</div>
+<span>Grow With Fesma</span>
+</a>
+</div>
+<div class="md:w-1/2">
+<img src="https://readdy.ai/api/search-image?query=diverse%20team%20of%20happy%20African%20cleaning%20professionals%20in%20branded%20uniforms%2C%20smiling%20and%20working%20together%20in%20a%20modern%20office%20environment%2C%20bright%20natural%20lighting%2C%20professional%20photography%20style%2C%20high%20quality&width=800&height=600&seq=careers1&orientation=landscape" alt="Careers at Fesma" class="w-full h-auto rounded-lg shadow-lg">
+</div>
+</div>
+</div>
+</section>
+<!-- Blog Section -->
+<section id="blog" class="py-20 bg-[#FBF3F2]">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-[#032539] mb-4">The Elevation Journal</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Smart stories, behind-the-scenes tips, and expert advice from the world of professional cleaning and facilities management.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Blog Post 1 -->
+<div class="blog-card bg-white rounded-lg shadow-md overflow-hidden">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=eco-friendly%20cleaning%20products%20and%20equipment%20being%20used%20by%20African%20professional%20in%20modern%20office%2C%20sustainable%20cleaning%20concept%2C%20bright%20natural%20lighting%2C%20high%20quality%20photography&width=600&height=400&seq=blog1&orientation=landscape" alt="Sustainable Cleaning" class="w-full h-full object-cover object-top transition-transform duration-500">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="text-sm text-gray-500">July 2, 2025</span>
+<span class="mx-2 text-gray-300">•</span>
+<span class="text-sm text-primary">Sustainability</span>
+</div>
+<h3 class="text-xl font-bold text-[#032539] mb-3">The Future of Sustainable Cleaning: Beyond Green Products</h3>
+<p class="text-gray-600 mb-4">Discover how sustainable cleaning practices go far beyond eco-friendly products to encompass water conservation, waste reduction, and energy efficiency.</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+<span>Read More</span>
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Blog Post 2 -->
+<div class="blog-card bg-white rounded-lg shadow-md overflow-hidden">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=African%20healthcare%20cleaning%20professional%20in%20PPE%20sanitizing%20hospital%20room%2C%20infection%20control%20concept%2C%20medical%20environment%2C%20bright%20lighting%2C%20high%20quality%20photography&width=600&height=400&seq=blog2&orientation=landscape" alt="Healthcare Cleaning" class="w-full h-full object-cover object-top transition-transform duration-500">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="text-sm text-gray-500">June 25, 2025</span>
+<span class="mx-2 text-gray-300">•</span>
+<span class="text-sm text-primary">Healthcare</span>
+</div>
+<h3 class="text-xl font-bold text-[#032539] mb-3">Infection Control in Healthcare Facilities: Best Practices</h3>
+<p class="text-gray-600 mb-4">Learn about the specialized cleaning protocols that help healthcare facilities maintain the highest standards of cleanliness and prevent infections.</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+<span>Read More</span>
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Blog Post 3 -->
+<div class="blog-card bg-white rounded-lg shadow-md overflow-hidden">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=African%20professional%20using%20modern%20cleaning%20technology%20and%20smart%20devices%20in%20commercial%20building%2C%20digital%20facilities%20management%20concept%2C%20bright%20environment%2C%20high%20quality%20photography&width=600&height=400&seq=blog3&orientation=landscape" alt="Smart Cleaning Technology" class="w-full h-full object-cover object-top transition-transform duration-500">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="text-sm text-gray-500">June 18, 2025</span>
+<span class="mx-2 text-gray-300">•</span>
+<span class="text-sm text-primary">Technology</span>
+</div>
+<h3 class="text-xl font-bold text-[#032539] mb-3">Smart Cleaning: How Technology is Transforming Facilities Management</h3>
+<p class="text-gray-600 mb-4">Explore how IoT devices, AI, and data analytics are revolutionizing the cleaning industry and creating more efficient, responsive services.</p>
+<a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+<span>Read More</span>
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<a href="#" class="inline-block bg-white border-2 border-primary text-primary px-8 py-3 !rounded-button font-medium hover:bg-primary hover:text-white transition-all whitespace-nowrap">View All Articles</a>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-[#032539] mb-4">Start Your Journey Where Spaces — and People — Rise</h2>
+<p class="text-lg text-gray-600 max-w-3xl mx-auto">Ready to transform your space? Contact us today for a consultation and customized solution.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+<input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-20 transition-all" placeholder="Your name">
+</div>
+<div>
+<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+<input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-20 transition-all" placeholder="your.email@example.com">
+</div>
+</div>
+<div>
+<label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+<input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-20 transition-all" placeholder="Your phone number">
+</div>
+<div>
+<label for="organization" class="block text-sm font-medium text-gray-700 mb-1">Organization</label>
+<input type="text" id="organization" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-20 transition-all" placeholder="Your company or organization">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-1">Services Interested In</label>
+<div class="space-y-2">
+<div class="flex items-center">
+<div id="checkbox1" class="custom-checkbox mr-2" onclick="toggleCheckbox('checkbox1')"></div>
+<label for="checkbox1" class="text-gray-700">Professional Cleaning</label>
+</div>
+<div class="flex items-center">
+<div id="checkbox2" class="custom-checkbox mr-2" onclick="toggleCheckbox('checkbox2')"></div>
+<label for="checkbox2" class="text-gray-700">Pest Control</label>
+</div>
+<div class="flex items-center">
+<div id="checkbox3" class="custom-checkbox mr-2" onclick="toggleCheckbox('checkbox3')"></div>
+<label for="checkbox3" class="text-gray-700">Sanitary Services</label>
+</div>
+<div class="flex items-center">
+<div id="checkbox4" class="custom-checkbox mr-2" onclick="toggleCheckbox('checkbox4')"></div>
+<label for="checkbox4" class="text-gray-700">Other/Not Sure</label>
+</div>
+</div>
+</div>
+<div>
+<label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+<textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-20 transition-all" placeholder="Tell us about your needs..."></textarea>
+</div>
+<div class="flex items-center">
+<div id="consent-checkbox" class="custom-checkbox mr-2" onclick="toggleCheckbox('consent-checkbox')"></div>
+<label for="consent-checkbox" class="text-sm text-gray-700">I consent to Fesma Cleaning Services processing my data to contact me about my inquiry.</label>
+</div>
+<button type="submit" class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Send Message</button>
+</form>
+</div>
+<div>
+<div class="bg-[#FBF3F2] p-8 rounded-lg mb-8">
+<h3 class="text-2xl font-bold text-[#032539] mb-6">Contact Information</h3>
+<div class="space-y-4">
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-[#1C768F] rounded-full text-white mr-4 shrink-0">
+<i class="ri-map-pin-line"></i>
+</div>
+<div>
+<h4 class="font-semibold text-[#032539] mb-1">Location</h4>
+<p class="text-gray-600">Hardy, Karen – Nairobi, Kenya</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-[#1C768F] rounded-full text-white mr-4 shrink-0">
+<i class="ri-phone-line"></i>
+</div>
+<div>
+<h4 class="font-semibold text-[#032539] mb-1">Phone</h4>
+<p class="text-gray-600">0720 680 272</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-[#1C768F] rounded-full text-white mr-4 shrink-0">
+<i class="ri-mail-line"></i>
+</div>
+<div>
+<h4 class="font-semibold text-[#032539] mb-1">Email</h4>
+<p class="text-gray-600">info@fesmasolutions.com</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-[#1C768F] rounded-full text-white mr-4 shrink-0">
+<i class="ri-time-line"></i>
+</div>
+<div>
+<h4 class="font-semibold text-[#032539] mb-1">Hours</h4>
+<p class="text-gray-600">Monday-Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 2:00 PM</p>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<h4 class="font-semibold text-[#032539] mb-3">Connect With Us</h4>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white rounded-full text-[#1C768F] hover:bg-[#1C768F] hover:text-white transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white rounded-full text-[#1C768F] hover:bg-[#1C768F] hover:text-white transition-colors">
+<i class="ri-twitter-x-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white rounded-full text-[#1C768F] hover:bg-[#1C768F] hover:text-white transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white rounded-full text-[#1C768F] hover:bg-[#1C768F] hover:text-white transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="bg-[#032539] p-8 rounded-lg text-white">
+<h3 class="text-2xl font-bold mb-4">Need Immediate Assistance?</h3>
+<p class="mb-6">Our team is ready to respond to urgent cleaning and facilities management needs.</p>
+<div class="flex items-center">
+<div class="w-12 h-12 flex items-center justify-center bg-primary rounded-full mr-4">
+<i class="ri-customer-service-2-line ri-lg"></i>
+</div>
+<div>
+<p class="text-sm text-gray-300">Call our emergency line</p>
+<p class="text-xl font-semibold">0720 680 272</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Map Section -->
+<section class="h-96 relative overflow-hidden">
+<div class="absolute inset-0 bg-center bg-no-repeat bg-cover" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');"></div>
+<div class="absolute inset-0 bg-[#032539] bg-opacity-10"></div>
+<div class="absolute top-4 left-4 bg-white p-4 rounded-lg shadow-md z-10">
+<h3 class="text-lg font-bold text-[#032539] mb-2">Fesma Cleaning Services</h3>
+<p class="text-gray-600">Hardy, Karen – Nairobi, Kenya</p>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#032539] text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<div class="flex items-center mb-4">
+<h3 class="text-2xl font-['Pacifico'] text-primary mr-2">Fesma</h3>
+<span class="text-sm font-medium text-gray-300">Cleaning Services</span>
+</div>
+<p class="text-gray-300 mb-6">Elevating spaces and people through professional cleaning and facilities management solutions.</p>
+<div class="flex items-center text-xs text-gray-400">
+<span>A member of</span>
+<a href="https://strathwellgroup.netlify.app/" target="_blank" class="ml-2 text-white hover:text-primary transition-colors">Strathwell Group</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Home</a></li>
+<li><a href="#services" class="text-gray-300 hover:text-primary transition-colors">Services</a></li>
+<li><a href="#clients" class="text-gray-300 hover:text-primary transition-colors">Clients</a></li>
+<li><a href="#testimonials" class="text-gray-300 hover:text-primary transition-colors">Testimonials</a></li>
+<li><a href="#careers" class="text-gray-300 hover:text-primary transition-colors">Careers</a></li>
+<li><a href="#blog" class="text-gray-300 hover:text-primary transition-colors">Blog</a></li>
+<li><a href="#contact" class="text-gray-300 hover:text-primary transition-colors">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Services</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Professional Cleaning</a></li>
+<li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Pest Control</a></li>
+<li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Sanitary Services</a></li>
+<li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Commercial Cleaning</a></li>
+<li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Healthcare Cleaning</a></li>
+<li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Educational Facilities</a></li>
+<li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Residential Properties</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+<p class="text-gray-300 mb-4">Subscribe to receive updates, news, and insights from Fesma.</p>
+<form class="mb-4">
+<div class="flex">
+<input type="email" placeholder="Your email address" class="flex-grow px-4 py-2 rounded-l border-none text-gray-800 focus:outline-none">
+<button type="submit" class="bg-primary text-white px-4 py-2 rounded-r hover:bg-opacity-90 transition-all whitespace-nowrap">Subscribe</button>
+</div>
+</form>
+<div class="flex space-x-3">
+<a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-700 rounded-full text-white hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-700 rounded-full text-white hover:bg-primary transition-colors">
+<i class="ri-twitter-x-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-700 rounded-full text-white hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center bg-gray-700 rounded-full text-white hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-700 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<div class="mb-4 md:mb-0">
+<p class="text-sm text-gray-400">© Fesma Cleaning Services 2025. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#" class="text-sm text-gray-400 hover:text-primary transition-colors">Terms & Conditions</a>
+<a href="#" class="text-sm text-gray-400 hover:text-primary transition-colors">Privacy Policy</a>
+<a href="#" class="text-sm text-gray-400 hover:text-primary transition-colors">Cookie Policy</a>
+</div>
+</div>
+<div class="mt-6 flex justify-center">
+<div class="flex items-center bg-gray-800 px-4 py-2 rounded-lg">
+<div class="w-5 h-5 flex items-center justify-center mr-2">
+<i class="ri-shield-check-line text-primary"></i>
+</div>
+<span class="text-xs text-gray-300">ISO 9001:2015 Certified</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Back to Top Button -->
+<button id="back-to-top" class="back-to-top fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-50">
+<i class="ri-arrow-up-line ri-lg"></i>
+</button>
+<!-- Scripts -->
+<script id="hero-carousel-script">
+document.addEventListener('DOMContentLoaded', function() {
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.carousel-dot');
+let currentSlide = 0;
+let slideInterval;
+function showSlide(index) {
+slides.forEach(slide => slide.classList.remove('active'));
+dots.forEach(dot => dot.classList.remove('active'));
+slides[index].classList.add('active');
+dots[index].classList.add('active');
+}
+function nextSlide() {
+currentSlide = (currentSlide + 1) % slides.length;
+showSlide(currentSlide);
+}
+function startSlideshow() {
+showSlide(0);
+slideInterval = setInterval(nextSlide, 5000);
+}
+dots.forEach((dot, index) => {
+dot.addEventListener('click', () => {
+clearInterval(slideInterval);
+currentSlide = index;
+showSlide(currentSlide);
+slideInterval = setInterval(nextSlide, 5000);
+});
+});
+startSlideshow();
+});
+</script>
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+if (mobileMenu.classList.contains('hidden')) {
+mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+} else {
+mobileMenuButton.innerHTML = '<i class="ri-close-line ri-lg"></i>';
+}
+});
+});
+</script>
+<script id="scroll-script">
+document.addEventListener('DOMContentLoaded', function() {
+const header = document.querySelector('header');
+const backToTopButton = document.getElementById('back-to-top');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 100) {
+header.classList.add('py-2');
+header.classList.remove('py-3');
+backToTopButton.classList.add('visible');
+} else {
+header.classList.add('py-3');
+header.classList.remove('py-2');
+backToTopButton.classList.remove('visible');
+}
+});
+backToTopButton.addEventListener('click', function() {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+// Close mobile menu if open
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+mobileMenu.classList.add('hidden');
+mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+}
+}
+});
+});
+});
+</script>
+<script id="service-dropdown-script">
+document.addEventListener('DOMContentLoaded', function() {
+const dropdownToggles = document.querySelectorAll('.service-dropdown-toggle');
+dropdownToggles.forEach(toggle => {
+toggle.addEventListener('click', function() {
+const dropdown = this.nextElementSibling;
+dropdown.classList.toggle('active');
+const icon = this.querySelector('i');
+if (dropdown.classList.contains('active')) {
+icon.classList.remove('ri-arrow-down-s-line');
+icon.classList.add('ri-arrow-up-s-line');
+} else {
+icon.classList.remove('ri-arrow-up-s-line');
+icon.classList.add('ri-arrow-down-s-line');
+}
+});
+});
+});
+</script>
+<script id="form-controls-script">
+function toggleCheckbox(id) {
+const checkbox = document.getElementById(id);
+checkbox.classList.toggle('checked');
+}
+document.addEventListener('DOMContentLoaded', function() {
+const switches = document.querySelectorAll('.custom-switch');
+switches.forEach(switchEl => {
+switchEl.addEventListener('click', function() {
+this.classList.toggle('active');
+});
+});
+});
+</script>
 </body>
 </html>
