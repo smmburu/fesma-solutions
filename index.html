@@ -1019,47 +1019,84 @@ mobileMenuButton.innerHTML = '<i class="ri-close-line ri-lg"></i>';
 </script>
 <script id="scroll-script">
 document.addEventListener('DOMContentLoaded', function() {
-const header = document.querySelector('header');
-const backToTopButton = document.getElementById('back-to-top');
-window.addEventListener('scroll', function() {
-if (window.scrollY > 100) {
-header.classList.add('py-2');
-header.classList.remove('py-3');
-backToTopButton.classList.add('visible');
-} else {
-header.classList.add('py-3');
-header.classList.remove('py-2');
-backToTopButton.classList.remove('visible');
-}
-});
-backToTopButton.addEventListener('click', function() {
-window.scrollTo({
-top: 0,
-behavior: 'smooth'
-});
-});
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function(e) {
-e.preventDefault();
-const targetId = this.getAttribute('href');
-if (targetId === '#') return;
-const targetElement = document.querySelector(targetId);
-if (targetElement) {
-window.scrollTo({
-top: targetElement.offsetTop - 80,
-behavior: 'smooth'
-});
-// Close mobile menu if open
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-mobileMenu.classList.add('hidden');
-mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
-}
-}
-});
-});
+  const header = document.querySelector('header');
+  const logoImg = document.getElementById('logo-img');
+  const navLinks = document.querySelectorAll('nav a');
+  const memberText = document.querySelector('header a > span');
+  const quoteButton = document.querySelector('a.bg-primary');
+  const backToTopButton = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+      header.classList.add('bg-[#032539]', 'py-2', 'sticky-shadow');
+      header.classList.remove('bg-white', 'py-3');
+      backToTopButton.classList.add('visible');
+      if (logoImg) {
+        logoImg.src = 'assets/fesma-logo - white.png';
+      }
+      navLinks.forEach(link => {
+        link.classList.add('text-white');
+        link.classList.remove('text-gray-700', 'hover:text-primary');
+      });
+      if (memberText) {
+        memberText.classList.add('text-white');
+        memberText.classList.remove('text-gray-500');
+      }
+      if (quoteButton) {
+        quoteButton.classList.remove('bg-primary', 'text-white', 'hover:bg-opacity-90');
+        quoteButton.classList.add('bg-white', 'text-[#032539]', 'hover:bg-gray-100');
+      }
+    } else {
+      header.classList.remove('bg-[#032539]', 'py-2', 'sticky-shadow');
+      header.classList.add('bg-white', 'py-3');
+      backToTopButton.classList.remove('visible');
+      if (logoImg) {
+        logoImg.src = 'assets/fesma-logo.png';
+      }
+      navLinks.forEach(link => {
+        link.classList.remove('text-white');
+        link.classList.add('text-gray-700', 'hover:text-primary');
+      });
+      if (memberText) {
+        memberText.classList.remove('text-white');
+        memberText.classList.add('text-gray-500');
+      }
+      if (quoteButton) {
+        quoteButton.classList.add('bg-primary', 'text-white', 'hover:bg-opacity-90');
+        quoteButton.classList.remove('bg-white', 'text-[#032539]', 'hover:bg-gray-100');
+      }
+    }
+  });
+
+  backToTopButton.addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+        // Close mobile menu if open
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+        }
+      }
+    });
+  });
 });
 </script>
 <script id="service-dropdown-script">
