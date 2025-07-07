@@ -1095,46 +1095,29 @@ this.classList.toggle('active');
 });
 });
 </script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const header = document.querySelector('header');
-  const logoImg = document.getElementById('logo-img');
-  const navLinks = document.querySelectorAll('nav a');
-  const quoteButton = document.querySelector('a.bg-primary');
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 100) {
-      header.classList.add('sticky-shadow');
-      header.classList.add('bg-[#032539]');
-      header.classList.remove('bg-white');
-      if (logoImg) {
-        logoImg.src = 'assets/fesma-logo - white.png';
-      }
-      navLinks.forEach(link => {
-        link.classList.add('text-white');
-        link.classList.remove('text-gray-700', 'hover:text-primary');
-      });
-      if (quoteButton) {
-        quoteButton.classList.remove('bg-primary', 'text-white', 'hover:bg-opacity-90');
-        quoteButton.classList.add('bg-white', 'text-[#032539]', 'hover:bg-gray-100');
-      }
-    } else {
-      header.classList.remove('sticky-shadow');
-      header.classList.remove('bg-[#032539]');
-      header.classList.add('bg-white');
-      if (logoImg) {
-        logoImg.src = 'assets/fesma-logo.png';
-      }
-      navLinks.forEach(link => {
-        link.classList.remove('text-white');
-        link.classList.add('text-gray-700', 'hover:text-primary');
-      });
-      if (quoteButton) {
-        quoteButton.classList.add('bg-primary', 'text-white', 'hover:bg-opacity-90');
-        quoteButton.classList.remove('bg-white', 'text-[#032539]', 'hover:bg-gray-100');
-      }
-    }
-  });
-});
-</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const header = document.querySelector('header');
+      const logoImg = document.getElementById('logo-img');
+      const navLinks = document.querySelectorAll('nav a');
+      const quoteButton = document.querySelector('a.bg-primary');
++     const memberText = document.querySelector('.member-text');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+          header.classList.add('sticky-shadow');
+          header.classList.add('bg-[#032539]');
+          header.classList.remove('bg-white');
+          if (logoImg) {
+            logoImg.src = 'assets/fesma-logo - white.png';
+          }
+          navLinks.forEach(link => {
+            link.classList.add('text-white');
+            link.classList.remove('text-gray-700', 'hover:text-primary');
+          });
++         if (memberText) {
++           memberText.classList.add('dark');
++         }
+          if (quoteButton) {
+            quoteButton.classList.remove('bg-primary', 'text-white', 'hover:bg-opacity-90');
 </body>
 </html>
