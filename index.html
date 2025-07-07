@@ -1098,11 +1098,15 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       navLinks.forEach(link => {
         link.classList.add('text-white');
-        link.classList.remove('text-gray-700', 'hover:text-primary');
+        link.classList.remove('text-gray-700');
+        // Add orange hover on dark nav
+        link.classList.add('hover:text-primary');
       });
       if (quoteButton) {
         quoteButton.classList.remove('bg-primary', 'text-white', 'hover:bg-opacity-90');
         quoteButton.classList.add('bg-white', 'text-[#032539]', 'hover:bg-gray-100');
+        // Add orange hover for button on dark nav
+        quoteButton.classList.add('hover:text-primary');
       }
     } else {
       header.classList.remove('sticky-shadow');
@@ -1113,11 +1117,14 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       navLinks.forEach(link => {
         link.classList.remove('text-white');
-        link.classList.add('text-gray-700', 'hover:text-primary');
+        link.classList.add('text-gray-700');
+        // Restore default hover
+        link.classList.remove('hover:text-primary');
+        link.classList.add('hover:text-primary');
       });
       if (quoteButton) {
         quoteButton.classList.add('bg-primary', 'text-white', 'hover:bg-opacity-90');
-        quoteButton.classList.remove('bg-white', 'text-[#032539]', 'hover:bg-gray-100');
+        quoteButton.classList.remove('bg-white', 'text-[#032539]', 'hover:bg-gray-100', 'hover:text-primary');
       }
     }
   });
