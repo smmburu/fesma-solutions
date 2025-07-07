@@ -1144,6 +1144,39 @@
             
             window.addEventListener('scroll', updateHeaderStyle);
             updateHeaderStyle(); // Check on load
+
+            function updateSolutionsThatWorkColor(isScrolled) {
+                const solutionsBtn = document.querySelector('nav .group > button');
+                if (!solutionsBtn) return;
+                if (isScrolled) {
+                    solutionsBtn.classList.add('text-white');
+                    solutionsBtn.classList.remove('text-[#032539]');
+                } else {
+                    solutionsBtn.classList.remove('text-white');
+                    solutionsBtn.classList.add('text-[#032539]');
+                }
+            }
+
+            function updateHeaderStyle() {
+                const isScrolled = window.scrollY > 50;
+                const header = document.querySelector('.sticky-header');
+                if (isScrolled) {
+                    header.classList.add('bg-[#032539]');
+                    header.classList.remove('bg-white');
+                    header.querySelectorAll('a:not(.cta-button)').forEach(link => {
+                        link.classList.add('text-white');
+                        link.classList.remove('text-[#032539]');
+                    });
+                } else {
+                    header.classList.remove('bg-[#032539]');
+                    header.classList.add('bg-white');
+                    header.querySelectorAll('a:not(.cta-button)').forEach(link => {
+                        link.classList.remove('text-white');
+                        link.classList.add('text-[#032539]');
+                    });
+                }
+                updateSolutionsThatWorkColor(isScrolled);
+            }
         });
     </script>
 
