@@ -1089,11 +1089,15 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', function() {
     if (window.scrollY > 100) {
       header.classList.add('sticky-shadow');
+      header.classList.add('bg-[#032539]');
+      header.classList.remove('bg-white');
       if (logoImg) {
         logoImg.src = 'assets/fesma-logo - white.png';
       }
     } else {
       header.classList.remove('sticky-shadow');
+      header.classList.remove('bg-[#032539]');
+      header.classList.add('bg-white');
       if (logoImg) {
         logoImg.src = 'assets/fesma-logo.png';
       }
