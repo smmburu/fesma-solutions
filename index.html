@@ -42,6 +42,18 @@
     background-color: #FBF3F2;
     font-size: 14px;
   }
+  header {
+    transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+  }
+  nav a {
+    transition: color 0.3s ease;
+  }
+  a.bg-primary {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  span.text-xs {
+    transition: color 0.3s ease;
+  }
   h1 {
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
@@ -1027,44 +1039,52 @@ document.addEventListener('DOMContentLoaded', function() {
   const backToTopButton = document.getElementById('back-to-top');
 
   window.addEventListener('scroll', function() {
-    if (window.scrollY > 100) {
-      header.classList.add('bg-[#032539]', 'py-2', 'sticky-shadow');
-      header.classList.remove('bg-white', 'py-3');
+    const maxScroll = 200; // max scroll for full opacity
+    const scrollY = Math.min(window.scrollY, maxScroll);
+    const opacity = scrollY / maxScroll;
+
+    // Set header background color with fade effect
+    header.style.backgroundColor = `rgba(3, 37, 57, ${opacity})`;
+    // Adjust padding smoothly between 3rem (py-12) and 0.5rem (py-2)
+    const padding = 3 - 2.5 * opacity; // from 3rem to 0.5rem
+    header.style.paddingTop = `${padding}rem`;
+    header.style.paddingBottom = `${padding}rem`;
+    // Set box shadow opacity
+    header.style.boxShadow = `0 4px 6px rgba(0, 0, 0, ${0.1 * opacity})`;
+
+    // Back to top button visibility
+    if (scrollY > 50) {
       backToTopButton.classList.add('visible');
-      if (logoImg) {
-        logoImg.src = 'assets/fesma-logo - white.png';
-      }
-      navLinks.forEach(link => {
-        link.classList.add('text-white');
-        link.classList.remove('text-gray-700', 'hover:text-primary');
-      });
-      if (memberText) {
-        memberText.classList.add('text-white');
-        memberText.classList.remove('text-gray-500');
-      }
-      if (quoteButton) {
-        quoteButton.classList.remove('bg-primary', 'text-white', 'hover:bg-opacity-90');
-        quoteButton.classList.add('bg-white', 'text-[#032539]', 'hover:bg-gray-100');
-      }
     } else {
-      header.classList.remove('bg-[#032539]', 'py-2', 'sticky-shadow');
-      header.classList.add('bg-white', 'py-3');
       backToTopButton.classList.remove('visible');
-      if (logoImg) {
-        logoImg.src = 'assets/fesma-logo.png';
+    }
+
+    // Logo image swap based on opacity threshold
+    if (opacity > 0.5) {
+      if (logoImg) logoImg.src = 'assets/fesma-logo - white.png';
+    } else {
+      if (logoImg) logoImg.src = 'assets/fesma-logo.png';
+    }
+
+    // Nav links color fade from gray-700 to white
+    navLinks.forEach(link => {
+      link.style.color = `rgba(255, 255, 255, ${opacity})`;
+      if (opacity < 0.5) {
+        link.classList.add('hover:text-primary');
+      } else {
+        link.classList.remove('hover:text-primary');
       }
-      navLinks.forEach(link => {
-        link.classList.remove('text-white');
-        link.classList.add('text-gray-700', 'hover:text-primary');
-      });
-      if (memberText) {
-        memberText.classList.remove('text-white');
-        memberText.classList.add('text-gray-500');
-      }
-      if (quoteButton) {
-        quoteButton.classList.add('bg-primary', 'text-white', 'hover:bg-opacity-90');
-        quoteButton.classList.remove('bg-white', 'text-[#032539]', 'hover:bg-gray-100');
-      }
+    });
+
+    // Member text color fade
+    if (memberText) {
+      memberText.style.color = `rgba(255, 255, 255, ${opacity})`;
+    }
+
+    // Quote button background and text color fade
+    if (quoteButton) {
+      quoteButton.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
+      quoteButton.style.color = `rgba(3, 37, 57, ${opacity})`;
     }
   });
 
