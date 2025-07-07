@@ -217,7 +217,7 @@
             <span>Solutions That Work</span>
             <i class="ri-arrow-down-s-line"></i>
         </button>
-        <div class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity z-20">
+        <div id="solutions-dropdown" class="absolute left-0 mt-2 w-48 bg-white rounded shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity z-20 dropdown-light">
             <a href="services.html#soft-services" class="block px-4 py-2 text-[#032539] hover:bg-primary hover:text-white">Soft Services</a>
             <a href="services.html#hard-services" class="block px-4 py-2 text-[#032539] hover:bg-primary hover:text-white">Hard Services</a>
         </div>
@@ -1161,6 +1161,7 @@
             function updateHeaderStyle() {
                 const isScrolled = window.scrollY > 50;
                 const header = document.querySelector('.sticky-header');
+                const dropdown = document.getElementById('solutions-dropdown');
                 if (isScrolled) {
                     header.classList.add('bg-[#032539]');
                     header.classList.remove('bg-white');
@@ -1168,6 +1169,10 @@
                         link.classList.add('text-white');
                         link.classList.remove('text-[#032539]');
                     });
+                    if (dropdown) {
+                        dropdown.classList.add('dropdown-dark');
+                        dropdown.classList.remove('dropdown-light');
+                    }
                 } else {
                     header.classList.remove('bg-[#032539]');
                     header.classList.add('bg-white');
@@ -1175,6 +1180,10 @@
                         link.classList.remove('text-white');
                         link.classList.add('text-[#032539]');
                     });
+                    if (dropdown) {
+                        dropdown.classList.remove('dropdown-dark');
+                        dropdown.classList.add('dropdown-light');
+                    }
                 }
                 updateSolutionsThatWorkColor(isScrolled);
             }
