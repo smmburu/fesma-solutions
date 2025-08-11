@@ -152,6 +152,8 @@ input:focus, select:focus, textarea:focus {
         <div class="flex items-center">
             <div class="flex flex-col items-start">
                 <a href="https://readdy.ai/home/f51671bd-d636-4e74-ba4b-506f58ec3c0f/a7972b51-c7f9-4bb7-b3db-4c03d5b86c1a" data-readdy="true" class="flex items-center">
+                    <!-- Header logo -->
+                    <img src="assets/silverfest-logo.png" alt="Silverfest Cleaning Services logo" class="h-8 w-auto mr-2" id="logo-img" />
                     <h1 class="text-2xl font-['Pacifico'] text-primary mr-2">Silverfest</h1>
                     <span class="text-sm font-medium text-[#032539]">Cleaning Services</span>
                 </a>
@@ -447,7 +449,7 @@ input:focus, select:focus, textarea:focus {
                 </div>
                 <p class="text-gray-700 mb-6">"I've been with Silverfest for over 5 years now, and what keeps me here is the sense of family. We work as a team, support each other, and celebrate our successes together. The company truly cares about its employees' wellbeing."</p>
                 <div class="flex items-center">
-                    <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20mature%20African%20woman%20in%20her%2040s%2C%20confident%20expression%2C%20business%20attire%2C%20neutral%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=emp3&orientation=squarish" alt="Employee Portrait" class="w-12 h-12 rounded-full object-cover mr-4">
+                    <img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20mature%20African%20woman%20in%20her%4040s%2C%20confident%20expression%2C%20business%20attire%2C%20neutral%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=emp3&orientation=squarish" alt="Employee Portrait" class="w-12 h-12 rounded-full object-cover mr-4">
                     <div>
                         <h4 class="font-semibold text-[#032539]">Rebecca Njeri</h4>
                         <p class="text-sm text-gray-600">Operations Supervisor, 5 years at Silverfest</p>
@@ -1046,7 +1048,7 @@ input:focus, select:focus, textarea:focus {
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             <div>
                 <div class="flex items-center mb-4">
-                    <img src="assets/fesma-logo - white.png" alt="Silverfest Cleaning Services white logo" class="h-8 w-auto mr-2" />
+                    <img src="assets/silverfest-logo-white.png" alt="Silverfest Cleaning Services logo" class="h-8 w-auto mr-2" />
                     <h3 class="text-2xl font-['Pacifico'] text-primary mr-2">Silverfest</h3>
                     <span class="text-sm font-medium text-gray-300">Cleaning Services</span>
                 </div>
@@ -1163,6 +1165,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } else {
             header.classList.remove('sticky-shadow');
+           
             header.classList.remove('bg-[#032539]');
             header.classList.add('bg-white');
             if (logoImg) {
