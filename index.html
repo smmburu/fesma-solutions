@@ -1083,7 +1083,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Logo image swap based on opacity threshold
     if (opacity > 0.5) {
       if (logoImg) {
-        logoImg.src = 'assets/silverfest-logo-white.png';
+        // Use the same logo file, just invert colors
+        logoImg.src = 'assets/silverfest-logo.png';
         logoImg.classList.add('invert');
       }
     } else {
