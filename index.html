@@ -1082,9 +1082,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Logo image swap based on opacity threshold
     if (opacity > 0.5) {
-      if (logoImg) logoImg.src = 'assets/silverfest-logo-white.png';
+      if (logoImg) {
+        logoImg.src = 'assets/silverfest-logo-white.png';
+        logoImg.classList.add('invert');
+      }
     } else {
-      if (logoImg) logoImg.src = 'assets/silverfest-logo.png';
+      if (logoImg) {
+        logoImg.src = 'assets/silverfest-logo.png';
+        logoImg.classList.remove('invert');
+      }
     }
 
     // Nav links color fade from gray-700 to white
